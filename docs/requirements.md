@@ -34,6 +34,7 @@ EStudy helps students and teachers detect learning gaps early through personaliz
 - Provide guidance for both students and teachers.
 
 ## Non-Functional Requirements
+- Web application, usable on modern desktop and mobile browsers.
 - Dashboards update in near real time after new scores.
 - Student data is private and accessible only to the student and their instructors.
 - No secrets in source control.
