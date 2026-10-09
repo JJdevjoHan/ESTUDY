@@ -6,7 +6,7 @@ Group: **PowerTres**
 
 ## Summary
 
-EStudy is a cross-platform, web and Android-based application that bridges student learning gaps through personalized diagnostic testing and real-time performance tracking. It converts assessment scores into continuous trend graphs and gives automated early warnings, so students and teachers can intervene before final examinations.
+EStudy is a web-based application that bridges student learning gaps through personalized diagnostic testing and real-time performance tracking. It converts assessment scores into continuous trend graphs and gives automated early warnings, so students and teachers can intervene before final examinations.
 
 ## Problem
 
