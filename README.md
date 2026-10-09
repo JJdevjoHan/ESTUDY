@@ -67,7 +67,7 @@ Never commit your real `.env` file. See [CONTRIBUTING.md](CONTRIBUTING.md) for w
 
 ## Task Board
 
-Task board: <add GitHub Projects / Trello link here>
+Task board: [PowerTres task board](https://app.clickup.com/1300440000010244/v/s/1300440000049393)
 
 ## Project Structure
 
