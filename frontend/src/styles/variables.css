@@ -1,0 +1,41 @@
+/* Design tokens from the Figma prototype. Change a color here and it changes everywhere. */
+:root {
+  /* Brand */
+  --color-primary: #8f1d2c;
+  --color-primary-hover: #781824;
+  --color-accent: #f6a93b;
+
+  /* Text */
+  --color-heading: #1b2a41;
+  --color-text: #374151;
+  --color-text-muted: #4b5563;
+
+  /* Links and selected states */
+  --color-link: #1f5fbf;
+  --color-link-hover: #174a94;
+  --color-selected-bg: #eaf1fc;
+
+  /* Surfaces and feedback */
+  --color-surface: #ffffff;
+  --color-border: #cbd2dc;
+  --color-divider: #e5e7eb;
+  --color-error: #b42318;
+  --color-error-bg: #fef3f2;
+
+  /* Gradient behind the students illustration */
+  --gradient-brand: linear-gradient(
+    180deg,
+    #8f1d2c 0%,
+    #b22f33 35%,
+    #e0583c 72%,
+    #f6a93b 100%
+  );
+
+  /* Fonts (loaded in index.html) */
+  --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Lato', system-ui, sans-serif;
+
+  /* Shape */
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
