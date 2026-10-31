@@ -8,10 +8,7 @@ const ROLE_ICONS = {
   [ROLES.TEACHER]: Presentation,
 };
 
-/**
- * The "I'm joining as a" picker. Two real radio buttons,
- * so keyboard and screen readers work out of the box.
- */
+
 export default function RoleSelector({ value, onChange }) {
   return (
     <fieldset className={styles.fieldset}>
