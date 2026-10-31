@@ -1,0 +1,8 @@
+.passwordHint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
