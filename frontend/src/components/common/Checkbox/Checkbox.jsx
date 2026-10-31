@@ -1,6 +1,6 @@
 import styles from './Checkbox.module.css';
 
-// `label` can be plain text or JSX (for example text with links in it).
+// `label` can be plain text or JSX 
 export default function Checkbox({ id, label, error = '', ...inputProps }) {
   return (
     <div>
