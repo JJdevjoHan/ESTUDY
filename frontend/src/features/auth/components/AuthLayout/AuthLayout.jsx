@@ -12,7 +12,6 @@ const FEATURES = [
 
 /**
  * The split screen shared by Login and both Registration pages:
- * gradient brand panel on the left, whatever you pass as children on the right.
  */
 export default function AuthLayout({ children }) {
   return (
