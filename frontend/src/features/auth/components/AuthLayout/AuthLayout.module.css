@@ -89,7 +89,7 @@
   color: var(--color-primary);
 }
 
-/* Pinned to the bottom edge. Change "height" to make the students bigger or smaller. */
+/* Setting for the student image*/
 .illustration {
   position: absolute;
   left: 0;
