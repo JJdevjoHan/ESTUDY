@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import LoginPage from './features/auth/SystemPages/LoginPage.jsx';
-import RegisterPage from './features/auth/SystemPages/RegisterPage.jsx';
 import DiagnosticLandingPage from './features/diagnostic/pages/DiagnosticLandingPage.jsx';
 import DiagnosticTestPage from './features/diagnostic/pages/DiagnosticTestPage.jsx';
+import LoginPage from './features/auth/AuthenticationPages/LoginPage.jsx';
+import RegisterPage from './features/auth/AuthenticationPages/RegisterPage.jsx';
 import PlaceholderPage from './pages/PlaceholderPage.jsx';
 import RequireDiagnostic, { RequireAuth } from './routes/RequireDiagnostic.jsx';
 import { ROUTES } from './routes/paths.js';

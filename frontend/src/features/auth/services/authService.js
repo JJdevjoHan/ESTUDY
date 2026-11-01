@@ -1,17 +1,38 @@
-// All network calls for authentication live here, so pages never call fetch directly.
-//
-// If VITE_API_BASE_URL is NOT set in your .env file, this file returns fake
-// data so you can build and demo the screens without a backend.
-// Once the backend is ready, set VITE_API_BASE_URL and these become real calls.
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const USER_KEY = 'user'; // diagnosticService.js writes to this same key
 
 const wait = (milliseconds) =>
   new Promise((resolve) => setTimeout(resolve, milliseconds));
 
-async function post(path, body) {
+function saveUser(user) {
+  try {
+    localStorage.setItem(USER_KEY, JSON.stringify(user));
+  } catch {
+    // Storage unavailable (private mode, quota). The user just won't persist.
+  }
+}
+
+export function getCurrentUser() {
+  try {
+    return JSON.parse(localStorage.getItem(USER_KEY));
+  } catch {
+    return null;
+  }
+}
+
+export function logout() {
+  try {
+    localStorage.removeItem(USER_KEY);
+  } catch {
+    // ignore
+  }
+}
+
+// `mockData` is only used when there is no backend (VITE_API_BASE_URL not set).
+async function post(path, body, mockData) {
   if (!API_BASE_URL) {
     await wait(700);
-    return { user: { role: body.role ?? 'student' } };
+    return mockData ?? { user: { role: body.role ?? 'student' } };
   }
 
   const response = await fetch(`${API_BASE_URL}${path}`, {
@@ -28,8 +49,30 @@ async function post(path, body) {
 }
 
 // TODO: match these paths and field names with the backend in src/auth.
-export const login = ({ email, password, rememberMe }) =>
-  post('/auth/login', { email: email.trim(), password, rememberMe });
+export async function login({ email, password, rememberMe }) {
+  const cleanEmail = email.trim();
+  const previous = getCurrentUser();
+
+  const data = await post(
+    '/auth/login',
+    { email: cleanEmail, password, rememberMe },
+    {
+      // Fake user for demos. An email containing "teacher" logs in as a teacher.
+      user: {
+        role: cleanEmail.toLowerCase().includes('teacher') ? 'teacher' : 'student',
+        fullName: 'Juan Dela Cruz',
+        email: cleanEmail,
+        studentNumber: '12-3456-789',
+        program: 'BSIT',
+        year: 3,
+        hasCompletedDiagnostic: previous?.hasCompletedDiagnostic ?? false,
+      },
+    }
+  );
+
+  saveUser(data.user);
+  return data;
+}
 
 export const register = ({ role, fullName, email, schoolId, password }) =>
   post('/auth/register', {
