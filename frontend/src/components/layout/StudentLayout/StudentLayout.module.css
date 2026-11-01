@@ -1,0 +1,29 @@
+.shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #e8e2e2;
+  color: #1b1b1b;
+  font-family: 'Lato', 'Segoe UI', system-ui, sans-serif;
+}
+
+.body {
+  display: flex;
+  flex: 1;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: 28px 32px 40px;
+}
+
+@media (max-width: 760px) {
+  .body {
+    flex-direction: column;
+  }
+
+  .main {
+    padding: 20px 16px 32px;
+  }
+}
