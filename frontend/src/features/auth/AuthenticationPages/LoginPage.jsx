@@ -25,17 +25,24 @@ export default function LoginPage() {
   });
 
   const submitLogin = async (formValues) => {
-    setIsSubmitting(true);
-    setSubmitError('');
-    try {
-      const { user } = await authService.login(formValues);
-      navigate(DASHBOARD_BY_ROLE[user.role]);
-    } catch (error) {
-      setSubmitError(error.message);
-    } finally {
-      setIsSubmitting(false);
+  setIsSubmitting(true);
+  setSubmitError('');
+  try {
+    const { user } = await authService.login(formValues);
+
+    if (user.role === ROLES.TEACHER) {
+      navigate(ROUTES.DASHBOARD_TEACHER, { replace: true });
+    } else if (!user.hasCompletedDiagnostic) {
+      navigate(ROUTES.DIAGNOSTIC, { replace: true });
+    } else {
+      navigate(ROUTES.DASHBOARD_STUDENT, { replace: true });
     }
-  };
+  } catch (error) {
+    setSubmitError(error.message);
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <AuthLayout>

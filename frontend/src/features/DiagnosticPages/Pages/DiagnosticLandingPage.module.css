@@ -1,0 +1,168 @@
+.heroCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 32px;
+  border-radius: 8px;
+  background: #ff3b3f;
+  color: #ffffff;
+}
+
+.heroText {
+  max-width: 640px;
+}
+
+.heroTag {
+  margin: 0 0 8px;
+  color: #ffd27a;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.heroText h1 {
+  margin: 0 0 10px;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  line-height: 1.15;
+}
+
+.heroText p:last-child {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.timerCircle {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #f9c97c;
+  color: #8f1d2c;
+}
+
+.timerNumber {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.timerLabel {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.infoCard {
+  padding: 20px 22px;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+.infoCard h2 {
+  margin: 0 0 14px;
+  font-size: 1rem;
+}
+
+.expectationList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.expectationList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.bulletNumber {
+  display: grid;
+  place-items: center;
+  flex: 0 0 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #8f1d2c;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.disclaimerText {
+  margin: 18px 0 0;
+  font-size: 0.72rem;
+}
+
+.instructionsList {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+.requiredTag {
+  display: inline-block;
+  margin: 14px 0 0;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background: #fde3c0;
+  color: #8f1d2c;
+  font-size: 0.72rem;
+}
+
+.actionContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.startButton {
+  padding: 14px 40px;
+  border: 0;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #ff3b3f, #b3202f);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(143, 29, 44, 0.45);
+}
+
+.startButton:hover {
+  filter: brightness(1.06);
+}
+
+.startButton:focus-visible {
+  outline: 3px solid #8f1d2c;
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .detailsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .heroCard {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 20px;
+  }
+}

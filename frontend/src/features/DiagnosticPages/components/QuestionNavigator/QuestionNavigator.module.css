@@ -1,0 +1,83 @@
+.panel {
+  padding: 16px;
+  border: 3px solid #ffb02e;
+  border-radius: 10px;
+  background: #fde3c0;
+}
+
+.title {
+  margin: 0 0 12px;
+  color: #6b2a10;
+  font-size: 0.9rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cell {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px solid #d9d0d0;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #1b1b1b;
+  font: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.cell:focus-visible {
+  outline: 3px solid #8f1d2c;
+  outline-offset: 2px;
+}
+
+/* State classes come after .cell so they win at equal specificity */
+.answered {
+  border-color: #8f1d2c;
+  background: #8f1d2c;
+  color: #ffffff;
+}
+
+.flagged {
+  border-color: #ff7a00;
+  box-shadow: inset 0 0 0 2px #ff7a00;
+}
+
+.current {
+  border-color: #ffb02e;
+  background: #ffb02e;
+  color: #3a1d00;
+  font-weight: 700;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin: 14px 0 0;
+  padding: 0;
+  color: #6b2a10;
+  font-size: 0.72rem;
+  list-style: none;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #d9d0d0;
+  border-radius: 3px;
+}

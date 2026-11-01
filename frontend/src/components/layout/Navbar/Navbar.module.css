@@ -1,0 +1,59 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  padding: 0 28px;
+  background: #ff3b3f;
+  color: #ffffff;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoBox {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #8f1d2c;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.logoText {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.2;
+}
+
+.userName {
+  font-size: 1.05rem;
+}
+
+.userDetails {
+  font-size: 0.72rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 560px) {
+  .navbar {
+    padding: 0 16px;
+  }
+
+  .logoText {
+    font-size: 1.3rem;
+  }
+}

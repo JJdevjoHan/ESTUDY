@@ -1,0 +1,49 @@
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.controls button {
+  padding: 10px 18px;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.controls button:focus-visible {
+  outline: 3px solid #8f1d2c;
+  outline-offset: 2px;
+}
+
+.controls button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.previous {
+  border: 1px solid #d6c8ef;
+  background: #e6dcf7;
+  color: #3b2a63;
+}
+
+.flag {
+  margin-left: auto;
+  border: 1px solid #ff3b3f;
+  background: #ffffff;
+  color: #b3202f;
+}
+
+.flag[aria-pressed='true'] {
+  background: #fde3c0;
+}
+
+.next {
+  border: 1px solid #8f1d2c;
+  background: #8f1d2c;
+  color: #ffffff;
+}
