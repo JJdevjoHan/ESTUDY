@@ -8,7 +8,7 @@ const STATUS = {
 export default function RecheckRequests({ requests }) {
   return (
     <section className={styles.card}>
-      <h2 className={styles.cardTitle}>Pending Tasks: Re-check Requests</h2>
+      <h2 className={styles.cardTitle}> Re-check Requests</h2>
       <div className={styles.tableWrap}>
         <table className={styles.table}>
           <thead>
