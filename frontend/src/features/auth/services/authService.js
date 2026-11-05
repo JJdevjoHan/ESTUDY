@@ -48,21 +48,26 @@ async function post(path, body, mockData) {
   return data;
 }
 
-// TODO: match these paths and field names with the backend in src/auth.
 export async function login({ email, password, rememberMe }) {
   const cleanEmail = email.trim();
   const previous = getCurrentUser();
+  const saved = getMockAccounts().find(
+    (account) => account.email === cleanEmail.toLowerCase()
+  );
 
   const data = await post(
     '/auth/login',
     { email: cleanEmail, password, rememberMe },
     {
-      // Fake user for demos. An email containing "teacher" logs in as a teacher.
+      // Demo user. Uses the account made on the register page when there is one.
+      // Without one, an email containing "teacher" logs in as a teacher.
       user: {
-        role: cleanEmail.toLowerCase().includes('teacher') ? 'teacher' : 'student',
-        fullName: 'Juan Dela Cruz',
+        role:
+          saved?.role ??
+          (cleanEmail.toLowerCase().includes('teacher') ? 'teacher' : 'student'),
+        fullName: saved?.fullName ?? 'Juan Dela Cruz',
         email: cleanEmail,
-        studentNumber: '12-3456-789',
+        studentNumber: saved?.schoolId ?? '12-3456-789',
         program: 'BSIT',
         year: 3,
         hasCompletedDiagnostic: previous?.hasCompletedDiagnostic ?? false,
@@ -73,12 +78,43 @@ export async function login({ email, password, rememberMe }) {
   saveUser(data.user);
   return data;
 }
+const ACCOUNTS_KEY = 'mockAccounts'; // demo only, until the backend is connected
 
-export const register = ({ role, fullName, email, schoolId, password }) =>
-  post('/auth/register', {
+function getMockAccounts() {
+  try {
+    return JSON.parse(localStorage.getItem(ACCOUNTS_KEY)) ?? [];
+  } catch {
+    return [];
+  }
+}
+
+function saveMockAccount(account) {
+  try {
+    const others = getMockAccounts().filter((a) => a.email !== account.email);
+    localStorage.setItem(ACCOUNTS_KEY, JSON.stringify([...others, account]));
+  } catch {
+    // Storage unavailable. The demo account just won't be remembered.
+  }
+}
+
+export async function register({ role, fullName, email, schoolId, password }) {
+  const data = await post('/auth/register', {
     role,
     fullName: fullName.trim(),
     email: email.trim(),
     schoolId: schoolId.trim(),
     password,
   });
+
+  // Demo mode only. With a real backend the server keeps the account.
+  if (!API_BASE_URL) {
+    saveMockAccount({
+      role,
+      fullName: fullName.trim(),
+      email: email.trim().toLowerCase(),
+      schoolId: schoolId.trim(),
+    });
+  }
+
+  return data;
+}
