@@ -6,6 +6,8 @@ import RegisterPage from './features/auth/AuthenticationPages/RegisterPage.jsx';
 import PlaceholderPage from './pages/PlaceholderPage.jsx';
 import RequireDiagnostic, { RequireAuth } from './routes/RequireDiagnostic.jsx';
 import { ROUTES } from './routes/paths.js';
+import TeacherDashboardPage from './features/teacher/pages/TeacherDashboardPage.jsx';
+
 
 function App() {
   return (
@@ -25,7 +27,7 @@ function App() {
           />
           <Route
             path={ROUTES.DASHBOARD_TEACHER}
-            element={<PlaceholderPage title="Teacher dashboard" />}
+            element={<TeacherDashboardPage />}
           />
         </Route>
 
