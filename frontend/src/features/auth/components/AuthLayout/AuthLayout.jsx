@@ -15,7 +15,7 @@ const FEATURES = [
  */
 export default function AuthLayout({ children }) {
   return (
-    <div className={styles.layout}>
+    <div className={styles.layout}> 
       <aside className={styles.brandPanel}>
         <img src={estudyLogo} alt="EStudy" className={styles.logo} />
 

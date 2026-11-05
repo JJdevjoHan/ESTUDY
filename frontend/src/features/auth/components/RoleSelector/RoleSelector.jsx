@@ -8,7 +8,6 @@ const ROLE_ICONS = {
   [ROLES.TEACHER]: Presentation,
 };
 
-
 export default function RoleSelector({ value, onChange }) {
   return (
     <fieldset className={styles.fieldset}>
