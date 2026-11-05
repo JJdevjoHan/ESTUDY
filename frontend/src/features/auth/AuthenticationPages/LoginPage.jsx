@@ -23,26 +23,29 @@ export default function LoginPage() {
     initialValues: { email: '', password: '', rememberMe: false },
     validate: validateLogin,
   });
+  
+const submitLogin = async (formValues) => {
+    setIsSubmitting(true);
+    setSubmitError('');
+    try {
+      const { user } = await authService.login(formValues);
+      console.log("Logged in user object:", user); // <-- Add this line
 
-  const submitLogin = async (formValues) => {
-  setIsSubmitting(true);
-  setSubmitError('');
-  try {
-    const { user } = await authService.login(formValues);
-
-    if (user.role === ROLES.TEACHER) {
-      navigate(ROUTES.DASHBOARD_TEACHER, { replace: true });
-    } else if (!user.hasCompletedDiagnostic) {
-      navigate(ROUTES.DIAGNOSTIC, { replace: true });
-    } else {
-      navigate(ROUTES.DASHBOARD_STUDENT, { replace: true });
+      if (user.role === ROLES.ADMIN || user.role === 'ROLE_ADMIN') {
+        navigate(ROUTES.DASHBOARD_ADMIN, { replace: true });
+      } else if (user.role === ROLES.TEACHER || user.role === 'ROLE_TEACHER') {
+        navigate(ROUTES.DASHBOARD_TEACHER, { replace: true });
+      } else if (!user.hasCompletedDiagnostic) {
+        navigate(ROUTES.DIAGNOSTIC, { replace: true });
+      } else {
+        navigate(ROUTES.DASHBOARD_STUDENT, { replace: true });
+      }
+    } catch (error) {
+      setSubmitError(error.message);
+    } finally {
+      setIsSubmitting(false);
     }
-  } catch (error) {
-    setSubmitError(error.message);
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+  };
 
   return (
     <AuthLayout>
