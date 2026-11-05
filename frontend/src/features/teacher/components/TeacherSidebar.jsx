@@ -10,11 +10,12 @@ import {
 import { ROUTES } from '../../../routes/paths.js';
 import styles from './TeacherSidebar.module.css';
 import estudyLogo from '../../../assets/images/estudy-logo-white.svg';
+import { TEACHER_ROUTES } from '../routes/teacherPaths.js';
 
 // Items without a `to` are pages that are not built yet. They show dimmed.
 const MAIN_ITEMS = [
   { key: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, to: ROUTES.DASHBOARD_TEACHER },
-  { key: 'subjects', label: 'Subjects (Students)', icon: Users },
+  { key: 'subjects', label: 'Subjects (Students)', icon: Users, to: TEACHER_ROUTES.SUBJECTS },
   { key: 'assessment', label: 'Assessment Maker', icon: ClipboardList },
   { key: 'requests', label: 'Request Queue', icon: ListChecks },
   { key: 'system', label: 'System Settings', icon: Settings },

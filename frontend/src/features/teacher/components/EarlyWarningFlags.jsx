@@ -33,7 +33,13 @@ export default function EarlyWarningFlags({ flags }) {
                   </td>
                   <td>{flag.reason}</td>
                   <td>
-                    <button type="button" className={styles.viewBtn}>View Profile</button>
+                    <button
+                       type="button"
+                         className={styles.viewBtn}
+                        onClick={() => navigate(studentProfilePath(flag.studentId))}
+                        >
+                      View Profile
+                  </button>
                   </td>
                 </tr>
               );

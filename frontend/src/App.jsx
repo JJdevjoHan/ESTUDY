@@ -7,7 +7,9 @@ import PlaceholderPage from './pages/PlaceholderPage.jsx';
 import RequireDiagnostic, { RequireAuth } from './routes/RequireDiagnostic.jsx';
 import { ROUTES } from './routes/paths.js';
 import TeacherDashboardPage from './features/teacher/pages/TeacherDashboardPage.jsx';
-
+import SubjectsPage from './features/teacher/pages/SubjectsPage.jsx';
+import StudentProfilePage from './features/teacher/pages/StudentProfilePage.jsx';
+import { TEACHER_ROUTES } from './features/teacher/routes/teacherPaths.js';
 
 function App() {
   return (
@@ -25,10 +27,11 @@ function App() {
             path={ROUTES.DIAGNOSTIC_RESULTS}
             element={<PlaceholderPage title="Diagnostic results" />}
           />
-          <Route
-            path={ROUTES.DASHBOARD_TEACHER}
-            element={<TeacherDashboardPage />}
-          />
+          <Route element={<RequireRole role={ROLES.TEACHER} />}>
+          <Route path={ROUTES.DASHBOARD_TEACHER} element={<TeacherDashboardPage />} />
+          <Route path={TEACHER_ROUTES.SUBJECTS} element={<SubjectsPage />} />
+          <Route path={TEACHER_ROUTES.STUDENT_PROFILE} element={<StudentProfilePage />} />
+          </Route>
         </Route>
 
         {/* Locked until the diagnostic is done */}

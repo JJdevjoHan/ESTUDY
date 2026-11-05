@@ -1,5 +1,8 @@
 import styles from './Widgets.module.css';
+import { useNavigate } from 'react-router-dom';
+import { studentProfilePath } from '../routes/teacherPaths.js';
 
+const navigate = useNavigate();
 const STATUS = {
   'in-review': { label: 'In Review', className: styles.inReview },
   resolved: { label: 'Resolved', className: styles.resolved },
