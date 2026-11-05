@@ -46,7 +46,7 @@ function App() {
         <Route element={<RequireDiagnostic />}>
           <Route
             path={ROUTES.DASHBOARD_STUDENT}
-            element={<PlaceholderPage title="Student dashboard" />}
+            element={<StudentDashboardPage />}
           />
         </Route>
 

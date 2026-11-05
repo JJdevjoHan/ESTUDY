@@ -1,0 +1,277 @@
+.statCard,
+.panel {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid #e5e9ef;
+  border-radius: 9px;
+  background: #ffffff;
+}
+
+.statTopline,
+.panelHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.statTopline {
+  color: #536174;
+  font-size: 0.73rem;
+}
+
+.statIcon,
+.panelIcon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+}
+
+.red {
+  background: #a92c2c;
+  color: #ffffff;
+}
+
+.blue {
+  background: #2d66b3;
+  color: #ffffff;
+}
+
+.darkRed {
+  background: #a92c2c;
+  color: #ffffff;
+}
+
+.orange {
+  background: #eb5a45;
+}
+
+.statValue {
+  margin-top: 4px;
+  color: #1b2a41;
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.statDetail {
+  margin-top: 5px;
+  color: #748196;
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+.resultsSection {
+  overflow: hidden;
+  border: 1px solid #e5e9ef;
+  border-radius: 9px;
+  background: #ffffff;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 14px 9px;
+}
+
+.sectionHeading h2,
+.panelHeading h2 {
+  margin: 0;
+  color: #1b2a41;
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.sectionHeading p,
+.panelHeading p {
+  margin-top: 2px;
+  color: #748196;
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+.viewAllButton {
+  flex: 0 0 auto;
+  padding: 5px 10px;
+  border: 1px solid #dfe5ec;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #1f5fbf;
+  font: inherit;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.viewAllButton:hover {
+  background: #f3f7fc;
+}
+
+.tableScroller {
+  overflow-x: auto;
+}
+
+.resultsTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.resultsTable thead {
+  background: #f7f9fb;
+}
+
+.resultsTable thead th {
+  padding: 8px 11px;
+  color: #64748b;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.resultsTable tbody th,
+.resultsTable tbody td {
+  padding: 9px 11px;
+  border-top: 1px solid #edf0f4;
+  color: #718096;
+  font-size: 0.7rem;
+}
+
+.resultsTable tbody th {
+  color: #24354d;
+  font-weight: 600;
+}
+
+.resultsTable .scoreCell {
+  color: #24354d;
+  font-weight: 700;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 0.62rem;
+  line-height: 1.3;
+}
+
+.passed {
+  background: #e9f2ff;
+  color: #1d5ca9;
+}
+
+.review {
+  background: #fff0e8;
+  color: #b5471b;
+}
+
+.panelHeading {
+  margin-bottom: 10px;
+}
+
+.panelIconBlue {
+  background: #e9f2ff;
+  color: #2d66b3;
+}
+
+.panelIconRed {
+  background: #fff0e8;
+  color: #e74b3c;
+}
+
+.performanceList,
+.upcomingList {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.performanceList {
+  flex-direction: column;
+  gap: 9px;
+}
+
+.performanceLabel {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  color: #24354d;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.progressTrack {
+  overflow: hidden;
+  height: 5px;
+  border-radius: 10px;
+  background: #e9edf2;
+}
+
+.progressFill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.progressFill.red {
+  background: #a92c2c;
+}
+
+.progressFill.orange {
+  background: #eb5a45;
+}
+
+.progressFill.blue {
+  background: #2d66b3;
+}
+
+.upcomingList {
+  gap: 7px;
+}
+
+.activityCard {
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  flex-direction: column;
+  gap: 3px;
+  padding: 9px 8px;
+  border-radius: 7px;
+  background: #f7f9fb;
+}
+
+.activityDay {
+  color: #64748b;
+  font-size: 0.6rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.activityTitle {
+  overflow: hidden;
+  color: #24354d;
+  font-size: 0.69rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.activityTime {
+  color: #748196;
+  font-size: 0.63rem;
+}
+
+@media (max-width: 650px) {
+  .upcomingList {
+    flex-direction: column;
+  }
+}
