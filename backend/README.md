@@ -16,7 +16,7 @@ register, log in, log out, view/update own profile, and for admins: manage accou
 
 Every account is one `user_profiles` row plus one row in the table of its role. Teammates should point their foreign keys at `Student` / `Teacher` (for example `@ManyToOne Student student`).
 
-## Folder structure (`com.csit321g3.powertres.estudy`)
+## Folder structure (`com.csit321G3.powertres.estudy`)
 
 ```
 config/       CorsConfig, PasswordConfig (BCrypt)

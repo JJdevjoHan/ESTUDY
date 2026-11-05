@@ -1,4 +1,4 @@
-package com.csit321g3.powertres.estudy.model;
+package com.csit321G3.powertres.estudy.model;
 
 /** The three roles of EStudy. Stored in the roles table and used by Spring Security as ROLE_STUDENT etc. */
 public final class RoleNames {

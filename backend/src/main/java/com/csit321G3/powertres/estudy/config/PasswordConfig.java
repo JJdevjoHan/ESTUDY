@@ -1,4 +1,4 @@
-package com.csit321g3.powertres.estudy.config;
+package com.csit321G3.powertres.estudy.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

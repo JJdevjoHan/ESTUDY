@@ -1,9 +1,9 @@
-package com.csit321g3.powertres.estudy.service;
+package com.csit321G3.powertres.estudy.service;
 
-import com.csit321g3.powertres.estudy.model.Role;
-import com.csit321g3.powertres.estudy.model.RoleNames;
-import com.csit321g3.powertres.estudy.repository.RoleRepository;
-import com.csit321g3.powertres.estudy.repository.UserProfileRepository;
+import com.csit321G3.powertres.estudy.model.Role;
+import com.csit321G3.powertres.estudy.model.RoleNames;
+import com.csit321G3.powertres.estudy.repository.RoleRepository;
+import com.csit321G3.powertres.estudy.repository.UserProfileRepository;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,6 +1,6 @@
-package com.csit321g3.powertres.estudy.repository;
+package com.csit321G3.powertres.estudy.repository;
 
-import com.csit321g3.powertres.estudy.model.Role;
+import com.csit321G3.powertres.estudy.model.Role;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 

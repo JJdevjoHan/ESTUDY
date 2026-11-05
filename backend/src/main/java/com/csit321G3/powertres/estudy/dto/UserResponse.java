@@ -1,9 +1,9 @@
-package com.csit321g3.powertres.estudy.dto;
+package com.csit321G3.powertres.estudy.dto;
 
-import com.csit321g3.powertres.estudy.model.Administrator;
-import com.csit321g3.powertres.estudy.model.Student;
-import com.csit321g3.powertres.estudy.model.Teacher;
-import com.csit321g3.powertres.estudy.model.UserProfile;
+import com.csit321G3.powertres.estudy.model.Administrator;
+import com.csit321G3.powertres.estudy.model.Student;
+import com.csit321G3.powertres.estudy.model.Teacher;
+import com.csit321G3.powertres.estudy.model.UserProfile;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import java.time.LocalDateTime;
 import java.util.Locale;

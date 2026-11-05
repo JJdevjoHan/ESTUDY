@@ -1,4 +1,4 @@
-package com.csit321g3.powertres.estudy.exception;
+package com.csit321G3.powertres.estudy.exception;
 
 import java.util.stream.Collectors;
 import org.springframework.dao.DataIntegrityViolationException;

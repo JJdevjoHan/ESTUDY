@@ -6,6 +6,7 @@ export const ROUTES = {
   FORGOT_PASSWORD: '/forgot-password', // page not built yet
   DASHBOARD_STUDENT: '/student/dashboard',
   DASHBOARD_TEACHER: '/teacher/dashboard',
+  DASHBOARD_ADMIN: '/admin/dashboard',
   DIAGNOSTIC: '/student/diagnostic',
   DIAGNOSTIC_TEST: '/student/diagnostic/test',
   DIAGNOSTIC_RESULTS: '/student/diagnostic/results',

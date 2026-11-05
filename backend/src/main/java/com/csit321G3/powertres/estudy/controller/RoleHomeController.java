@@ -1,8 +1,8 @@
-package com.csit321g3.powertres.estudy.controller;
+package com.csit321G3.powertres.estudy.controller;
 
-import com.csit321g3.powertres.estudy.dto.UserResponse;
-import com.csit321g3.powertres.estudy.security.AuthUser;
-import com.csit321g3.powertres.estudy.service.AccountService;
+import com.csit321G3.powertres.estudy.dto.UserResponse;
+import com.csit321G3.powertres.estudy.security.AuthUser;
+import com.csit321G3.powertres.estudy.service.AccountService;
 import java.util.Map;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;

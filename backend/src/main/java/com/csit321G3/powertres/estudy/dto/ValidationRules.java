@@ -1,4 +1,4 @@
-package com.csit321g3.powertres.estudy.dto;
+package com.csit321G3.powertres.estudy.dto;
 
 /** Validation rules used by several request classes. Matches the checks in the React forms. */
 public final class ValidationRules {

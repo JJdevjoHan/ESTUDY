@@ -1,4 +1,4 @@
-package com.csit321g3.powertres.estudy;
+package com.csit321G3.powertres.estudy;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

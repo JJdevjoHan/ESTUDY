@@ -1,6 +1,6 @@
-package com.csit321g3.powertres.estudy.security;
+package com.csit321G3.powertres.estudy.security;
 
-import com.csit321g3.powertres.estudy.repository.UserProfileRepository;
+import com.csit321G3.powertres.estudy.repository.UserProfileRepository;
 import io.jsonwebtoken.JwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

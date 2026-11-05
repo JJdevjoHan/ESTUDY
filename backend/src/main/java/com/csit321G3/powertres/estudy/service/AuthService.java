@@ -1,13 +1,13 @@
-package com.csit321g3.powertres.estudy.service;
+package com.csit321G3.powertres.estudy.service;
 
-import com.csit321g3.powertres.estudy.dto.AuthResponse;
-import com.csit321g3.powertres.estudy.dto.LoginRequest;
-import com.csit321g3.powertres.estudy.dto.RegisterRequest;
-import com.csit321g3.powertres.estudy.exception.AccountDisabledException;
-import com.csit321g3.powertres.estudy.exception.InvalidCredentialsException;
-import com.csit321g3.powertres.estudy.model.UserProfile;
-import com.csit321g3.powertres.estudy.repository.UserProfileRepository;
-import com.csit321g3.powertres.estudy.security.JwtService;
+import com.csit321G3.powertres.estudy.dto.AuthResponse;
+import com.csit321G3.powertres.estudy.dto.LoginRequest;
+import com.csit321G3.powertres.estudy.dto.RegisterRequest;
+import com.csit321G3.powertres.estudy.exception.AccountDisabledException;
+import com.csit321G3.powertres.estudy.exception.InvalidCredentialsException;
+import com.csit321G3.powertres.estudy.model.UserProfile;
+import com.csit321G3.powertres.estudy.repository.UserProfileRepository;
+import com.csit321G3.powertres.estudy.security.JwtService;
 import java.util.Locale;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

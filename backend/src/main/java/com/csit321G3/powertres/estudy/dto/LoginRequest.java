@@ -1,4 +1,4 @@
-package com.csit321g3.powertres.estudy.dto;
+package com.csit321G3.powertres.estudy.dto;
 
 import jakarta.validation.constraints.NotBlank;
 

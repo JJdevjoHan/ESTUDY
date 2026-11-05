@@ -1,4 +1,4 @@
-package com.csit321g3.powertres.estudy.config;
+package com.csit321G3.powertres.estudy.config;
 
 import java.util.Arrays;
 import java.util.List;

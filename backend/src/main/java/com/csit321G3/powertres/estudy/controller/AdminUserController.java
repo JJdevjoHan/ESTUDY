@@ -1,15 +1,15 @@
-package com.csit321g3.powertres.estudy.controller;
+package com.csit321G3.powertres.estudy.controller;
 
-import com.csit321g3.powertres.estudy.dto.AssignRoleRequest;
-import com.csit321g3.powertres.estudy.dto.CreateAccountRequest;
-import com.csit321g3.powertres.estudy.dto.ResetPasswordRequest;
-import com.csit321g3.powertres.estudy.dto.RoleResponse;
-import com.csit321g3.powertres.estudy.dto.StatusRequest;
-import com.csit321g3.powertres.estudy.dto.UpdateAccountRequest;
-import com.csit321g3.powertres.estudy.dto.UserResponse;
-import com.csit321g3.powertres.estudy.model.UserProfile;
-import com.csit321g3.powertres.estudy.security.AuthUser;
-import com.csit321g3.powertres.estudy.service.AccountService;
+import com.csit321G3.powertres.estudy.dto.AssignRoleRequest;
+import com.csit321G3.powertres.estudy.dto.CreateAccountRequest;
+import com.csit321G3.powertres.estudy.dto.ResetPasswordRequest;
+import com.csit321G3.powertres.estudy.dto.RoleResponse;
+import com.csit321G3.powertres.estudy.dto.StatusRequest;
+import com.csit321G3.powertres.estudy.dto.UpdateAccountRequest;
+import com.csit321G3.powertres.estudy.dto.UserResponse;
+import com.csit321G3.powertres.estudy.model.UserProfile;
+import com.csit321G3.powertres.estudy.security.AuthUser;
+import com.csit321G3.powertres.estudy.service.AccountService;
 import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.http.HttpStatus;

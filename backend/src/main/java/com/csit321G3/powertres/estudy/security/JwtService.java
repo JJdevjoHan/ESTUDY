@@ -1,6 +1,6 @@
-package com.csit321g3.powertres.estudy.security;
+package com.csit321G3.powertres.estudy.security;
 
-import com.csit321g3.powertres.estudy.model.UserProfile;
+import com.csit321G3.powertres.estudy.model.UserProfile;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;

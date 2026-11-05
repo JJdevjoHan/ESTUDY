@@ -1,4 +1,4 @@
-package com.csit321g3.powertres.estudy;
+package com.csit321G3.powertres.estudy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

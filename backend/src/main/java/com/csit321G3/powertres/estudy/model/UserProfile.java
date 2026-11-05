@@ -1,4 +1,4 @@
-package com.csit321g3.powertres.estudy.model;
+package com.csit321G3.powertres.estudy.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

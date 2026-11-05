@@ -1,10 +1,10 @@
-package com.csit321g3.powertres.estudy.controller;
+package com.csit321G3.powertres.estudy.controller;
 
-import com.csit321g3.powertres.estudy.dto.ChangePasswordRequest;
-import com.csit321g3.powertres.estudy.dto.UpdateAccountRequest;
-import com.csit321g3.powertres.estudy.dto.UserResponse;
-import com.csit321g3.powertres.estudy.security.AuthUser;
-import com.csit321g3.powertres.estudy.service.AccountService;
+import com.csit321G3.powertres.estudy.dto.ChangePasswordRequest;
+import com.csit321G3.powertres.estudy.dto.UpdateAccountRequest;
+import com.csit321G3.powertres.estudy.dto.UserResponse;
+import com.csit321G3.powertres.estudy.security.AuthUser;
+import com.csit321G3.powertres.estudy.service.AccountService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

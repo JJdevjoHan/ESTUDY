@@ -1,4 +1,4 @@
-package com.csit321g3.powertres.estudy.dto;
+package com.csit321G3.powertres.estudy.dto;
 
 /** Login/register result. Send the token back as "Authorization: Bearer <token>" on every later request. */
 public record AuthResponse(UserResponse user, String token, String tokenType, long expiresInSeconds) {

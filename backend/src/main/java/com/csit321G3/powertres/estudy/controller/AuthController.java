@@ -1,9 +1,9 @@
-package com.csit321g3.powertres.estudy.controller;
+package com.csit321G3.powertres.estudy.controller;
 
-import com.csit321g3.powertres.estudy.dto.AuthResponse;
-import com.csit321g3.powertres.estudy.dto.LoginRequest;
-import com.csit321g3.powertres.estudy.dto.RegisterRequest;
-import com.csit321g3.powertres.estudy.service.AuthService;
+import com.csit321G3.powertres.estudy.dto.AuthResponse;
+import com.csit321G3.powertres.estudy.dto.LoginRequest;
+import com.csit321G3.powertres.estudy.dto.RegisterRequest;
+import com.csit321G3.powertres.estudy.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;

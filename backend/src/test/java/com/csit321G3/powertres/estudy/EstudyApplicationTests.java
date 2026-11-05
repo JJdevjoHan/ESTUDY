@@ -1,4 +1,4 @@
-package com.csit321g3.powertres.estudy;
+package com.csit321G3.powertres.estudy;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
