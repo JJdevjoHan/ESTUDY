@@ -8,7 +8,7 @@ import PasswordField from '../../../components/common/PasswordField/PasswordFiel
 import TextField from '../../../components/common/TextField/TextField.jsx';
 import useForm from '../../../hooks/useForm.js';
 import { ROUTES, registerPath } from '../../../routes/paths.js';
-import AuthLayout from '../components/AuthLayout/AuthLayout.jsx';
+import AuthModal from '../components/AuthModal/AuthModal.jsx';
 import RoleSelector from '../components/RoleSelector/RoleSelector.jsx';
 import { ROLE_CONFIG, ROLES, isValidRole } from '../constants/roles.js';
 import * as authService from '../services/authService.js';
@@ -58,10 +58,10 @@ export default function RegisterPage() {
   };
 
   return (
-    <AuthLayout>
+    <AuthModal>
       <header className={styles.header}>
         <span className={styles.eyebrow}>Your learning journey starts here</span>
-        <h1 className={styles.title}>Create your account</h1>
+        <h1 id="auth-title" className={styles.title}>Create your account</h1>
         <p className={styles.subtitle}>
           A clearer picture of learning. A place to begin.
         </p>
@@ -169,6 +169,6 @@ export default function RegisterPage() {
       <p className={styles.footer}>
         Already have an account? <Link to={ROUTES.LOGIN}>Log in</Link>
       </p>
-    </AuthLayout>
+    </AuthModal>
   );
 }

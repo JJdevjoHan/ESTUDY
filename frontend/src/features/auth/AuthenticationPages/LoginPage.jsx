@@ -8,7 +8,7 @@ import PasswordField from '../../../components/common/PasswordField/PasswordFiel
 import TextField from '../../../components/common/TextField/TextField.jsx';
 import useForm from '../../../hooks/useForm.js';
 import { ROUTES, registerPath } from '../../../routes/paths.js';
-import AuthLayout from '../components/AuthLayout/AuthLayout.jsx';
+import AuthModal from '../components/AuthModal/AuthModal.jsx';
 import { DASHBOARD_BY_ROLE, ROLES } from '../constants/roles.js';
 import * as authService from '../services/authService.js';
 import { validateLogin } from '../utils/validators.js';
@@ -31,15 +31,20 @@ const submitLogin = async (formValues) => {
       const { user } = await authService.login(formValues);
       console.log("Logged in user object:", user); // <-- Add this line
 
-      if (user.role === ROLES.ADMIN || user.role === 'ROLE_ADMIN') {
-        navigate(ROUTES.DASHBOARD_ADMIN, { replace: true });
-      } else if (user.role === ROLES.TEACHER || user.role === 'ROLE_TEACHER') {
-        navigate(ROUTES.DASHBOARD_TEACHER, { replace: true });
-      } else if (!user.hasCompletedDiagnostic) {
-        navigate(ROUTES.DIAGNOSTIC, { replace: true });
-      } else {
-        navigate(ROUTES.DASHBOARD_STUDENT, { replace: true });
-      }
+  const submitLogin = async (formValues) => {
+    setIsSubmitting(true);
+    setSubmitError('');
+    try {
+      const { user } = await authService.login(formValues);
+               if (user.role === ROLES.ADMIN) {
+           navigate(ROUTES.DASHBOARD_ADMIN, { replace: true });
+         } else if (user.role === ROLES.TEACHER) {
+           navigate(ROUTES.DASHBOARD_TEACHER, { replace: true });
+         } else if (!user.hasCompletedDiagnostic) {
+           navigate(ROUTES.DIAGNOSTIC, { replace: true });
+         } else {
+           navigate(ROUTES.DASHBOARD_STUDENT, { replace: true });
+         }
     } catch (error) {
       setSubmitError(error.message);
     } finally {
@@ -48,10 +53,10 @@ const submitLogin = async (formValues) => {
   };
 
   return (
-    <AuthLayout>
+    <AuthModal>
       <header className={styles.header}>
         <span className={styles.eyebrow}>Your next step starts here</span>
-        <h1 className={styles.title}>Welcome back</h1>
+        <h1 id="auth-title" className={styles.title}>Welcome back</h1>
         <p className={styles.subtitle}>Log in to pick up where you left off.</p>
       </header>
 
@@ -107,6 +112,6 @@ const submitLogin = async (formValues) => {
         Don&apos;t have an account?{' '}
         <Link to={registerPath(ROLES.STUDENT)}>Create account</Link>
       </p>
-    </AuthLayout>
+    </AuthModal>
   );
 }
