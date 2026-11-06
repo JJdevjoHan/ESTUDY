@@ -1,6 +1,7 @@
 // Single source of truth for every URL in the app.
 // Never type a path string inside a component. Import it from here instead.
 export const ROUTES = {
+  HOME: '/', // the landing page
   LOGIN: '/login',
   REGISTER: '/register/:role', // used by <Route path=...>
   FORGOT_PASSWORD: '/forgot-password', // page not built yet

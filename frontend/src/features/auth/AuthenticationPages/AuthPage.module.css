@@ -2,8 +2,10 @@
 .header {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-bottom: 24px;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 22px;
+  text-align: center;
 }
 
 .eyebrow {
@@ -16,7 +18,7 @@
 
 .title {
   font-family: var(--font-heading);
-  font-size: 36px;
+  font-size: 30px;
   line-height: 1.15;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -24,7 +26,7 @@
 }
 
 .subtitle {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.5;
   color: var(--color-text-muted);
 }
