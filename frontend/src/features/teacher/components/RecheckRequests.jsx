@@ -1,14 +1,16 @@
-import styles from './Widgets.module.css';
 import { useNavigate } from 'react-router-dom';
 import { studentProfilePath } from '../routes/teacherPaths.js';
+import styles from './Widgets.module.css';
 
-const navigate = useNavigate();
 const STATUS = {
   'in-review': { label: 'In Review', className: styles.inReview },
   resolved: { label: 'Resolved', className: styles.resolved },
 };
 
+
 export default function RecheckRequests({ requests }) {
+  const navigate = useNavigate();
+
   return (
     <section className={styles.card}>
       <h2 className={styles.cardTitle}> Re-check Requests</h2>
@@ -37,7 +39,13 @@ export default function RecheckRequests({ requests }) {
                     <span className={`${styles.badge} ${status.className}`}>{status.label}</span>
                   </td>
                   <td>
-                    <button type="button" className={styles.viewBtn}>View Profile</button>
+                    <button
+  type="button"
+  className={styles.viewBtn}
+  onClick={() => navigate(studentProfilePath(req.studentId))}
+>
+  View Profile
+</button>
                   </td>
                 </tr>
               );

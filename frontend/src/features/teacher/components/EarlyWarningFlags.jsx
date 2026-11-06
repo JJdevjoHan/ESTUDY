@@ -1,9 +1,13 @@
+import { useNavigate } from 'react-router-dom';
 import { AlertCircle, AlertTriangle } from 'lucide-react';
+import { studentProfilePath } from '../routes/teacherPaths.js';
 import styles from './Widgets.module.css';
 
 const FLAG_LABELS = { critical: 'Critical', warning: 'Warning', caution: 'Caution' };
 
 export default function EarlyWarningFlags({ flags }) {
+  const navigate = useNavigate();
+
   return (
     <section className={styles.card}>
       <h2 className={styles.cardTitle}>Attention Items: Early Warning Flags</h2>

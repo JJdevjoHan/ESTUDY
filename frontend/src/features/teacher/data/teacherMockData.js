@@ -27,9 +27,45 @@ export const earlyWarningFlags = [
 ];
 
 export const recheckRequests = [
-  { id: 1, studentId: 's1', student: 'Alex P.', activity: 'Quiz 1.1', date: 'Oct 25', question: 'Q5, Q7', status: 'in-review' },
-  { id: 2, studentId: 's1', student: 'Alex P.', activity: 'Quiz 1.1', date: 'Oct 15', question: 'Q5, Q6', status: 'in-review' },
-  { id: 3, studentId: 's2', student: 'Maria V.', activity: 'Final Exam', date: 'Oct 9', question: 'Q12', status: 'resolved' },
+  {
+    id: 1,
+    studentId: 's1',
+    student: 'Alex P.',
+    subject: 'Physics',
+    activity: 'Quiz 1.1',
+    date: 'Oct 25',
+    question: 'Q5, Q7',
+    reason: 'My answer for Q5 follows the formula from the lecture notes.',
+    answer: 'Q5: v = d / t = 12 m/s\nQ7: The force doubles when the mass doubles.',
+    status: 'in-review',
+  },
+  {
+    id: 2,
+    studentId: 's1',
+    student: 'Alex P.',
+    subject: 'Physics',
+    activity: 'Quiz 1.1',
+    date: 'Oct 15',
+    question: 'Q5, Q6',
+    reason: 'I think Q6 was marked wrong because of a unit mistake in the key.',
+    answer: 'Q5: 9.8 m/s²\nQ6: 45 N',
+    status: 'in-review',
+  },
+  {
+    id: 3,
+    studentId: 's2',
+    student: 'Maria V.',
+    subject: 'IE',
+    activity: 'Final Exam',
+    date: 'Oct 9',
+    question: 'Q12',
+    reason: 'My essay answer covers all three points listed in the rubric.',
+    answer: 'Q12: Lean production reduces waste, shortens lead time and improves quality.',
+    status: 'resolved',
+    outcome: 'approved',
+    note: 'Rechecked. You are right, I added 3 points.',
+    resolvedOn: 'Oct 10',
+  },
 ];
 
 // Percentage of students in each score range. Values follow SUBJECT_NAMES order.
