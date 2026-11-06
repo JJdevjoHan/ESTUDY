@@ -129,12 +129,6 @@ export default function LandingPage() {
 
           <div className={styles.visual}>
             <span className={styles.disc} aria-hidden="true" />
-            <span className={`${styles.chip} ${styles.chipTop}`} aria-hidden="true">
-              <Target size={16} /> Pinpoint your learning gaps
-            </span>
-            <span className={`${styles.chip} ${styles.chipBottom}`} aria-hidden="true">
-              <TrendingUp size={16} /> Performance Tracking
-            </span>
             <img src={studentsIllustration} alt="Students studying together" className={styles.students} />
           </div>
         </div>

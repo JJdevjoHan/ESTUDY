@@ -1,7 +1,8 @@
 .page {
-  /* Students illustration: tweak these two numbers if it looks too small or floats above the bottom edge. */
-  --students-width: min(135%, 940px);
-  --students-shift: 0px; /* positive = moves the picture down */
+ 
+  --students-shift: 160px;
+  --students-width: min(160%, 1150px);
+ 
 
   background: var(--color-surface);
 }
@@ -50,9 +51,9 @@
   border-radius: 50%;
   border: 3px solid rgba(255, 255, 255, 0.9);
 }
-.ringLarge { right: 40%; bottom: 14%; width: 78px; height: 78px; }
-.ringSmall { top: 22%; right: 20%; width: 34px; height: 34px; }
-.ringThin  { top: 56%; right: 6%; width: 50px; height: 50px; border-width: 2px; border-color: rgba(255, 241, 236, 0.6); }
+/*.ringLarge { right: 52%; bottom: 8%;  width: 78px; height: 78px; }*/
+.ringSmall { top: 22%;   right: 34%;  width: 34px; height: 34px; }
+.ringThin  { top: 40%;   right: 4%;   width: 50px; height: 50px; border-width: 2px; border-color: rgba(255, 241, 236, 0.6); }
 
 .contours {
   position: absolute;
@@ -267,11 +268,12 @@
 
 .students {
   position: absolute;
-  right: -3vw;
+  left: 60%;
   bottom: calc(var(--students-shift) * -1);
   display: block;
   width: var(--students-width);
   max-width: none;
+  transform: translateX(-50%);
 }
 
 .chip {
