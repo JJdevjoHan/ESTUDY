@@ -7,6 +7,12 @@
   color: #ffffff;
   background: linear-gradient(180deg, #972828 0%, #a52f2c 55%, #e45742 100%);
 }
+.logo {
+  display: block;
+  width: 100%;
+  max-width: 170px;
+  height: auto;
+}
 
 .brand {
   display: flex;

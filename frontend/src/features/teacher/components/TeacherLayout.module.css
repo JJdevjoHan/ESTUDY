@@ -1,0 +1,21 @@
+.shell {
+  display: flex;
+  gap: 20px;
+  min-height: 100vh;
+  padding: 16px;
+  background: #e9ecf1;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (max-width: 760px) {
+  .shell {
+    flex-direction: column;
+  }
+}

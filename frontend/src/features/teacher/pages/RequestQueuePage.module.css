@@ -1,0 +1,133 @@
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tab {
+  padding: 9px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  font: inherit;
+  font-weight: 700;
+  color: var(--color-heading);
+  cursor: pointer;
+}
+
+.tabActive {
+  background: #972828;
+  color: #ffffff;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.rowSelected td {
+  background: #fdf1ee;
+}
+
+.empty {
+  padding: 24px;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 14px;
+  margin: 0 0 14px;
+  font-size: 0.85rem;
+}
+
+.facts dt {
+  color: var(--color-text-muted);
+}
+
+.facts dd {
+  margin: 0;
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.blockLabel {
+  display: block;
+  margin: 12px 0 4px;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.blockText {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #f6f7f9;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 10px 12px;
+  border: 1px solid #cbd2dc;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.85rem;
+  resize: vertical;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.primary {
+  padding: 9px 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #972828;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary:hover {
+  background: #7c1f1f;
+}
+
+.secondary {
+  padding: 9px 14px;
+  border: 1px solid #972828;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #972828;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.linkBtn {
+  margin-top: 14px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #972828;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

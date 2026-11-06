@@ -1,0 +1,98 @@
+.subjectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+}
+
+.subjectBtn {
+  padding: 16px 18px;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.subjectBtn:hover {
+  border-color: #f3c3b8;
+}
+
+.subjectActive,
+.subjectActive:hover {
+  border-color: #972828;
+}
+
+.subjectName {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-heading);
+}
+
+.subjectMeta {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.searchBox {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #eceef2;
+  color: #972828;
+}
+
+.searchBox input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  color: var(--color-text);
+}
+
+.select {
+  padding: 8px 12px;
+  border: 1px solid #cbd2dc;
+  border-radius: 8px;
+  background: #ffffff;
+  font: inherit;
+  color: var(--color-text);
+}
+
+.nameCell {
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.scoreCell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.scoreCell span {
+  min-width: 34px;
+  font-weight: 700;
+}
+
+.empty {
+  padding: 24px;
+  text-align: center;
+  color: var(--color-text-muted);
+}

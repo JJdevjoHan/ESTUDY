@@ -3,7 +3,7 @@ import styles from './Widgets.module.css';
 export default function RecentUpdates({ updates }) {
   return (
     <section className={styles.card}>
-      <h2 className={styles.cardTitle}>Recent Updates Overview</h2>
+      <h2 className={styles.cardTitle}>Recent Updates</h2>
       <div className={styles.tableWrap}>
         <table className={styles.table}>
           <thead>

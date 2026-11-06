@@ -1,9 +1,13 @@
+import { useNavigate } from 'react-router-dom';
 import { AlertCircle, AlertTriangle } from 'lucide-react';
+import { studentProfilePath } from '../routes/teacherPaths.js';
 import styles from './Widgets.module.css';
 
 const FLAG_LABELS = { critical: 'Critical', warning: 'Warning', caution: 'Caution' };
 
 export default function EarlyWarningFlags({ flags }) {
+  const navigate = useNavigate();
+
   return (
     <section className={styles.card}>
       <h2 className={styles.cardTitle}>Attention Items: Early Warning Flags</h2>
@@ -33,7 +37,13 @@ export default function EarlyWarningFlags({ flags }) {
                   </td>
                   <td>{flag.reason}</td>
                   <td>
-                    <button type="button" className={styles.viewBtn}>View Profile</button>
+                    <button
+                       type="button"
+                         className={styles.viewBtn}
+                        onClick={() => navigate(studentProfilePath(flag.studentId))}
+                        >
+                      View Profile
+                  </button>
                   </td>
                 </tr>
               );
