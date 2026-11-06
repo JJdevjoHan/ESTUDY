@@ -1,12 +1,8 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import TeacherLayout from '../components/TeacherLayout.jsx';
-import {
-  subjects,
-  students,
-  earlyWarningFlags,
-  recheckRequests,
-} from '../data/teacherMockData.js';
+import { subjects, students, earlyWarningFlags } from '../data/teacherMockData.js';
+import { useRechecks } from '../store/recheckStore.js';
 import { getAverage, getStatus, STATUS_LABELS } from '../utils/studentUtils.js';
 import { TEACHER_ROUTES } from '../routes/teacherPaths.js';
 import widgets from '../components/Widgets.module.css';
@@ -23,6 +19,7 @@ const FLAG_LABELS = { critical: 'Critical', warning: 'Warning', caution: 'Cautio
 export default function StudentProfilePage() {
   const { studentId } = useParams();
   const navigate = useNavigate();
+  const allRequests = useRechecks();
   const student = students.find((s) => s.id === studentId);
 
   const backButton = (
@@ -47,7 +44,7 @@ export default function StudentProfilePage() {
   const status = getStatus(average);
   const subjectRows = subjects.filter((s) => s.id in student.scores);
   const flags = earlyWarningFlags.filter((f) => f.studentId === student.id);
-  const requests = recheckRequests.filter((r) => r.studentId === student.id);
+  const requests = allRequests.filter((r) => r.studentId === student.id);
 
   return (
     <TeacherLayout activeKey="subjects" title="STUDENT PROFILE">

@@ -17,7 +17,7 @@ const MAIN_ITEMS = [
   { key: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, to: ROUTES.DASHBOARD_TEACHER },
   { key: 'subjects', label: 'Subjects (Students)', icon: Users, to: TEACHER_ROUTES.SUBJECTS },
   { key: 'assessment', label: 'Assessment Maker', icon: ClipboardList },
-  { key: 'requests', label: 'Request Queue', icon: ListChecks },
+  { key: 'requests', label: 'Request Queue', icon: ListChecks, to: TEACHER_ROUTES.REQUESTS },
   { key: 'system', label: 'System Settings', icon: Settings },
 ];
 

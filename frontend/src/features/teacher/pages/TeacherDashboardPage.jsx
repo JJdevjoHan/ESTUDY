@@ -5,19 +5,20 @@ import EarlyWarningFlags from '../components/EarlyWarningFlags.jsx';
 import RecheckRequests from '../components/RecheckRequests.jsx';
 import PerformanceChart from '../components/PerformanceChart.jsx';
 import RecentUpdates from '../components/RecentUpdates.jsx';
+import { useRechecks } from '../store/recheckStore.js';
 import {
   SUBJECT_NAMES,
   subjects,
   students,
   earlyWarningFlags,
-  recheckRequests,
   performanceGroups,
   recentUpdates,
 } from '../data/teacherMockData.js';
 import styles from './TeacherDashboardPage.module.css';
 
 export default function TeacherDashboardPage() {
-  const openRechecks = recheckRequests.filter((r) => r.status === 'in-review').length;
+  const rechecks = useRechecks();
+  const openRechecks = rechecks.filter((r) => r.status === 'in-review').length;
 
   const stats = [
     { key: 'students', icon: Users, value: students.length, label: 'Total Students', percent: 75, color: '#eb7f31' },
@@ -39,7 +40,7 @@ export default function TeacherDashboardPage() {
 
       <div className={styles.grid}>
         <EarlyWarningFlags flags={earlyWarningFlags} />
-        <RecheckRequests requests={recheckRequests} />
+        <RecheckRequests requests={rechecks} />
         <PerformanceChart subjects={SUBJECT_NAMES} groups={performanceGroups} />
         <RecentUpdates updates={recentUpdates} />
       </div>
