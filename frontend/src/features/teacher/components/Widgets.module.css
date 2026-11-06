@@ -1,10 +1,9 @@
-/* Cards */
 .card {
   min-width: 0;
   padding: 18px 20px;
-  border-radius: 14px;
+  border: 1px solid #eadfd9;
+  border-radius: 18px;
   background: #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .cardTitle {
