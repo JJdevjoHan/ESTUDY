@@ -13,6 +13,7 @@ import SubjectsPage from './features/teacher/pages/SubjectsPage.jsx';
 import StudentProfilePage from './features/teacher/pages/StudentProfilePage.jsx';
 import { TEACHER_ROUTES } from './features/teacher/routes/teacherPaths.js';
 import RequestQueuePage from './features/teacher/pages/RequestQueuePage.jsx';
+import StudentDashboardPage from './features/students/pages/StudentDashboardPage.jsx';
 
 
 function App() {
@@ -46,7 +47,7 @@ function App() {
         <Route element={<RequireDiagnostic />}>
           <Route
             path={ROUTES.DASHBOARD_STUDENT}
-            element={<PlaceholderPage title="Student dashboard" />}
+            element={<StudentDashboardPage />}
           />
         </Route>
 
