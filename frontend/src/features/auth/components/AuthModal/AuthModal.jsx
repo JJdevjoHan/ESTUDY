@@ -9,7 +9,7 @@ import styles from './AuthModal.module.css';
 const FOCUSABLE =
   'a[href], button:not([disabled]), input:not([disabled]), select, textarea, [tabindex]:not([tabindex="-1"])';
 
-  
+
 export default function AuthModal({ children }) {
   const navigate = useNavigate();
   const cardRef = useRef(null);
@@ -17,7 +17,7 @@ export default function AuthModal({ children }) {
   const close = useCallback(() => navigate(ROUTES.HOME), [navigate]);
 
   useEffect(() => {
-    // Stop the page behind the popup from scrolling while it is open.
+    
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     cardRef.current?.focus();
@@ -27,7 +27,7 @@ export default function AuthModal({ children }) {
         close();
         return;
       }
-      // Keep Tab inside the popup.
+     
       if (event.key === 'Tab' && cardRef.current) {
         const items = [...cardRef.current.querySelectorAll(FOCUSABLE)];
         if (items.length === 0) return;
