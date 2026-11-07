@@ -1,4 +1,4 @@
-/* The dimmed backdrop. The landing page stays visible (blurred) behind it. */
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -11,7 +11,7 @@
   animation: fadeIn 0.2s ease-out;
 }
 
-/* The white card. If the form is taller than the screen, the card scrolls. */
+
 .card {
   position: relative;
   width: 100%;
@@ -28,7 +28,7 @@
   outline: none;
 }
 
-/* ---------- Top banner (brand gradient with a white hill) ---------- */
+
 .banner {
   position: relative;
   height: 172px;

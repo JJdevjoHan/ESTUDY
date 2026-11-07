@@ -1,5 +1,5 @@
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-const USER_KEY = 'user'; // diagnosticService.js writes to this same key
+const USER_KEY = 'user'; 
 
 const wait = (milliseconds) =>
   new Promise((resolve) => setTimeout(resolve, milliseconds));
@@ -8,8 +8,9 @@ function saveUser(user) {
   try {
     localStorage.setItem(USER_KEY, JSON.stringify(user));
   } catch {
-    // Storage unavailable (private mode, quota). The user just won't persist.
+
   }
+    
 }
 
 export function getCurrentUser() {
@@ -24,11 +25,11 @@ export function logout() {
   try {
     localStorage.removeItem(USER_KEY);
   } catch {
-    // ignore
+    
   }
 }
 
-// `mockData` is only used when there is no backend (VITE_API_BASE_URL not set).
+
 async function post(path, body, mockData) {
   if (!API_BASE_URL) {
     await wait(700);
@@ -59,8 +60,7 @@ export async function login({ email, password, rememberMe }) {
     '/auth/login',
     { email: cleanEmail, password, rememberMe },
     {
-      // Demo user. Uses the account made on the register page when there is one.
-      // Without one, an email containing "teacher" logs in as a teacher.
+      
       user: {
         role:
           saved?.role ??
@@ -78,7 +78,7 @@ export async function login({ email, password, rememberMe }) {
   saveUser(data.user);
   return data;
 }
-const ACCOUNTS_KEY = 'mockAccounts'; // demo only, until the backend is connected
+const ACCOUNTS_KEY = 'mockAccounts'; 
 
 function getMockAccounts() {
   try {
@@ -93,7 +93,7 @@ function saveMockAccount(account) {
     const others = getMockAccounts().filter((a) => a.email !== account.email);
     localStorage.setItem(ACCOUNTS_KEY, JSON.stringify([...others, account]));
   } catch {
-    // Storage unavailable. The demo account just won't be remembered.
+    
   }
 }
 
@@ -106,7 +106,7 @@ export async function register({ role, fullName, email, schoolId, password }) {
     password,
   });
 
-  // Demo mode only. With a real backend the server keeps the account.
+  
   if (!API_BASE_URL) {
     saveMockAccount({
       role,

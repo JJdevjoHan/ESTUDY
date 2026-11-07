@@ -5,8 +5,7 @@ export const ROLES = {
   TEACHER: 'teacher',
 };
 
-// Everything that differs between the two registration screens lives here,
-// so RegisterPage doesn't need any if/else for student vs teacher.
+
 export const ROLE_CONFIG = {
   [ROLES.STUDENT]: {
     title: 'Student',
@@ -26,7 +25,7 @@ export const ROLE_CONFIG = {
 
 export const isValidRole = (role) => Object.values(ROLES).includes(role);
 
-// Where each role lands after logging in.
+
 export const DASHBOARD_BY_ROLE = {
   [ROLES.STUDENT]: ROUTES.DASHBOARD_STUDENT,
   [ROLES.TEACHER]: ROUTES.DASHBOARD_TEACHER,
