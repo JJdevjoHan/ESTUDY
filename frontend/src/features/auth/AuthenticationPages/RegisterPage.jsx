@@ -16,8 +16,7 @@ import { validateRegistration } from '../utils/validators.js';
 import styles from './AuthPage.module.css';
 import registerStyles from './RegisterPage.module.css';
 
-// One page for BOTH registration screens. The role comes from the URL:
-//   /register/student  and  /register/teacher
+
 export default function RegisterPage() {
   const { role } = useParams();
   const navigate = useNavigate();
@@ -39,7 +38,6 @@ export default function RegisterPage() {
       validateRegistration(formValues, config?.idLabel ?? 'ID'),
   });
 
-  // Unknown role in the URL (e.g. /register/banana): send them to the student form.
   if (!isValidRole(role)) {
     return <Navigate to={registerPath(ROLES.STUDENT)} replace />;
   }

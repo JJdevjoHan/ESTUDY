@@ -9,11 +9,7 @@ import styles from './AuthModal.module.css';
 const FOCUSABLE =
   'a[href], button:not([disabled]), input:not([disabled]), select, textarea, [tabindex]:not([tabindex="-1"])';
 
-/**
- * The popup card that holds the Login and Registration forms.
- * It sits on top of the landing page. Closing it (X button, Esc key, or a click outside)
- * goes back to the landing page. Pass the form as children.
- */
+  
 export default function AuthModal({ children }) {
   const navigate = useNavigate();
   const cardRef = useRef(null);

@@ -7,7 +7,7 @@
   background: var(--color-surface);
 }
 
-/* ================= Hero ================= */
+
 .hero {
   position: relative;
   display: flex;
@@ -18,7 +18,7 @@
   color: #ffffff;
 }
 
-/* ---- decorative background ---- */
+
 .decor {
   position: absolute;
   inset: 0;
@@ -63,7 +63,7 @@
   color: rgba(255, 255, 255, 0.22);
 }
 
-/* ---- navigation ---- */
+
 .nav {
   position: relative;
   z-index: 1;
@@ -144,7 +144,7 @@
   text-decoration: none;
 }
 
-/* ---- hero content ---- */
+
 .heroBody {
   position: relative;
   z-index: 1;
@@ -249,7 +249,7 @@
   color: #ffe2cf;
 }
 
-/* ---- hero illustration ---- */
+
 .visual {
   position: relative;
   align-self: end;
@@ -294,7 +294,7 @@
 .chipTop { top: 4%; left: 4%; }
 .chipBottom { top: 22%; right: 2%; }
 
-/* ================= Sections ================= */
+
 .section {
   padding: 96px 6vw;
 }
@@ -400,7 +400,7 @@
   color: #ffffff;
 }
 
-/* ================= Final call to action ================= */
+
 .finalCta {
   display: flex;
   flex-direction: column;
@@ -419,7 +419,7 @@
   color: #ffffff;
 }
 
-/* ================= Footer ================= */
+
 .footer {
   display: flex;
   flex-wrap: wrap;
@@ -436,7 +436,7 @@
   width: auto;
 }
 
-/* ================= Tablet and phone ================= */
+
 @media (max-width: 960px) {
   .ringLarge,
   .ringSmall {

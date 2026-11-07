@@ -1,7 +1,7 @@
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PASSWORD_PATTERN = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
 
-// Each validator returns an error message, or '' when the value is fine.
+
 const validateEmail = (email) => {
   if (!email.trim()) return 'Email is required.';
   if (!EMAIL_PATTERN.test(email.trim())) return 'Enter a valid email address.';

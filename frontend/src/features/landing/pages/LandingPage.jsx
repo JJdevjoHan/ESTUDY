@@ -8,7 +8,7 @@ import { Link, Outlet } from 'react-router-dom';
 
 import estudyLogoColor from '../../../assets/images/estudy-logo.svg';
 import estudyLogoWhite from '../../../assets/images/estudy-logo-white.svg';
-import studentsIllustration from '../../../assets/images/auth-students.png';
+//import studentsIllustration from '../../../assets/images/auth-students.png';
 import { ROUTES, registerPath } from '../../../routes/paths.js';
 import { ROLES } from '../../auth/constants/roles.js';
 import styles from './LandingPage.module.css';
@@ -46,7 +46,7 @@ const STEPS = [
   { id: 3, title: 'Review your dashboard', text: 'Spot weak topics early and watch your scores improve.' },
 ];
 
-// Thin wavy lines in the hero background (purely decorative).
+
 function ContourLines() {
   return (
     <svg className={styles.contours} viewBox="0 0 640 300" fill="none" aria-hidden="true">
@@ -63,10 +63,7 @@ function ContourLines() {
   );
 }
 
-/**
- * The public landing page. It is also the "layout" for the Log in / Sign up routes:
- * <Outlet /> is where the popup card (LoginPage / RegisterPage) is drawn on top of it.
- */
+
 export default function LandingPage() {
   return (
     <div className={styles.page}>
@@ -126,12 +123,15 @@ export default function LandingPage() {
             </div>
             <p className={styles.audience}>Made for students and teachers.</p>
           </div>
-
+        
+       
           <div className={styles.visual}>
-            <span className={styles.disc} aria-hidden="true" />
-            <img src={studentsIllustration} alt="Students studying together" className={styles.students} />
+              <span className={styles.disc} aria-hidden="true" />
+             {/* <img src={studentsIllustration} alt="Students studying together" className={styles.students} /> */}
+            </div>
           </div>
-        </div>
+       
+
       </header>
 
       <main>
@@ -191,7 +191,7 @@ export default function LandingPage() {
         <p>&copy; 2026 EStudy. All rights reserved.</p>
       </footer>
 
-      {/* The Log in / Sign up popup appears here when the URL is /login or /register/... */}
+   
       <Outlet />
     </div>
   );
