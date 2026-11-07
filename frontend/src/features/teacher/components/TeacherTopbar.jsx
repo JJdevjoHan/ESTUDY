@@ -1,22 +1,25 @@
-import { Search, MessageSquare, Bell } from 'lucide-react';
+import { Search, MessageSquare, Bell, CalendarDays } from 'lucide-react';
 import styles from './TeacherTopbar.module.css';
 
-export default function TeacherTopbar({ title = 'DASHBOARD', fullName }) {
+export default function TeacherTopbar({ title = 'DASHBOARD' }) {
   const today = new Date().toLocaleDateString('en-US', {
+    weekday: 'short',
     month: 'short',
     day: 'numeric',
-    year: 'numeric',
   });
 
   return (
     <header className={styles.topbar}>
-      <h1 className={styles.title}>{title}</h1>
+      <div>
+        <p className={styles.eyebrow}>Teacher workspace</p>
+        <h1 className={styles.title}>{title}</h1>
+      </div>
 
       <div className={styles.right}>
-        <div className={styles.welcome}>
-          <p className={styles.welcomeName}>Welcome {fullName}</p>
-          <p className={styles.date}>Current date: {today}</p>
-        </div>
+        <span className={styles.dateChip}>
+          <CalendarDays size={15} aria-hidden="true" />
+          {today}
+        </span>
 
         <label className={styles.search}>
           <Search size={16} aria-hidden="true" />
@@ -24,11 +27,11 @@ export default function TeacherTopbar({ title = 'DASHBOARD', fullName }) {
         </label>
 
         <button type="button" className={styles.iconBtn} aria-label="Messages">
-          <MessageSquare size={20} />
+          <MessageSquare size={18} />
           <span className={styles.dot} />
         </button>
         <button type="button" className={styles.iconBtn} aria-label="Notifications">
-          <Bell size={20} />
+          <Bell size={18} />
           <span className={styles.dot} />
         </button>
       </div>

@@ -1,0 +1,27 @@
+.shell {
+  display: flex;
+  flex-direction: row-reverse; /* puts the sidebar on the right */
+  align-items: flex-start;
+  min-height: 100vh;
+  background: #f4efec;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px 28px 32px;
+}
+
+@media (max-width: 760px) {
+  .shell {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .main {
+    padding: 16px;
+  }
+}
