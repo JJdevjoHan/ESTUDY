@@ -13,6 +13,7 @@ import SubjectsPage from './features/teacher/pages/SubjectsPage.jsx';
 import StudentProfilePage from './features/teacher/pages/StudentProfilePage.jsx';
 import { TEACHER_ROUTES } from './features/teacher/routes/teacherPaths.js';
 import RequestQueuePage from './features/teacher/pages/RequestQueuePage.jsx';
+import StudentDashboardPage from './features/students/pages/StudentDashboardPage.jsx';
 
 
 function App() {
