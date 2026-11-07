@@ -7,7 +7,6 @@ import {
   submitDiagnostic,
 } from '../services/diagnosticService.js';
 
-/** Holds all the state for the diagnostic test so the page stays small. */
 export default function useDiagnosticTest() {
   const navigate = useNavigate();
 

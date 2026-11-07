@@ -13,5 +13,4 @@ export const ROUTES = {
   DIAGNOSTIC_RESULTS: '/student/diagnostic/results',
 };
 
-// Builds a real URL such as "/register/teacher".
 export const registerPath = (role) => `/register/${role}`;
