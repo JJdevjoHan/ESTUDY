@@ -18,7 +18,7 @@
 
 .headerText p {
   margin: 4px 0 12px;
-  color: #8f1d2c;
+  color: #781824;
   font-size: 0.85rem;
   font-weight: 700;
 }
@@ -33,7 +33,7 @@
 .progressFill {
   height: 100%;
   border-radius: 2px;
-  background: #ff3b3f;
+  background: #781824;
   transition: width 0.25s ease;
 }
 
@@ -79,7 +79,7 @@
   padding: 12px 20px;
   border: 0;
   border-radius: 6px;
-  background: linear-gradient(180deg, #ff3b3f, #b3202f);
+  background: linear-gradient(180deg, #781824, #b3202f);
   color: #ffffff;
   font: inherit;
   font-weight: 700;
@@ -98,7 +98,7 @@
 
 .error {
   margin: 0;
-  color: #b3202f;
+  color: #781824;;
   font-size: 0.85rem;
 }
 

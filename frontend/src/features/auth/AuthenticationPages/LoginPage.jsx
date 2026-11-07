@@ -37,7 +37,7 @@ export default function LoginPage() {
         navigate(ROUTES.DASHBOARD_TEACHER, { replace: true });
       } else if (!user.hasCompletedDiagnostic) {
         navigate(ROUTES.DIAGNOSTIC, { replace: true });
-      } else {
+      } else if(user.hasCompletedDiagnostic){
         navigate(ROUTES.DASHBOARD_STUDENT, { replace: true });
       }
     } catch (error) {
