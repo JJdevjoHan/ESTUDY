@@ -1,37 +1,27 @@
-import styles from './Widgets.module.css';
+import styles from './DashboardWidgets.module.css';
 
 export default function RecentUpdates({ updates }) {
   return (
-    <section className={styles.card}>
-      <h2 className={styles.cardTitle}>Recent Updates Overview</h2>
-      <div className={styles.tableWrap}>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>Activity</th>
-              <th>Date</th>
-              <th>Class</th>
-              <th>Avg. Score</th>
-            </tr>
-          </thead>
-          <tbody>
-            {updates.map((item) => (
-              <tr key={item.id}>
-                <td>{item.activity}</td>
-                <td>{item.date}</td>
-                <td>{item.className}</td>
-                <td>
-                  <div className={styles.scoreTrack}>
-                    <div className={styles.scoreFill} style={{ width: `${item.avgScore}%` }}>
-                      {item.avgScore}%
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+    <section className={styles.panel}>
+      <div className={styles.panelHead}>
+        <h2 className={styles.panelTitle}>Recent updates</h2>
       </div>
+
+      <ul className={styles.list}>
+        {updates.map((item) => (
+          <li key={item.id} className={styles.item}>
+            <span className={styles.ring} style={{ '--v': item.avgScore }}>
+              <span className={styles.ringInner}>{item.avgScore}%</span>
+            </span>
+            <div className={styles.itemBody}>
+              <p className={styles.itemTitle}>{item.activity}</p>
+              <p className={styles.itemText}>
+                {item.className} · {item.date}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

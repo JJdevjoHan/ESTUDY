@@ -1,87 +1,85 @@
 .sidebar {
-  flex: 0 0 240px;
+  position: sticky;
+  top: 0;
+  flex: 0 0 250px;
+  width: 250px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 24px 16px;
-  border-radius: 18px;
+  padding: 28px 16px 20px;
+  border-radius: 28px 0 0 28px;
   color: #ffffff;
-  background: linear-gradient(180deg, #972828 0%, #a52f2c 55%, #e45742 100%);
+  background: linear-gradient(200deg, #b8322d 0%, #972828 50%, #6f1a1f 100%);
+  box-shadow: -8px 0 24px rgba(111, 26, 31, 0.18);
+  overflow-y: auto;
 }
 
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0 8px 28px;
+  padding: 0 8px 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.logoBox {
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  background: #ffffff;
-  color: #972828;
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 800;
-}
-
-.logoText {
-  font-family: var(--font-heading);
-  font-size: 1.6rem;
-  font-weight: 800;
+.logo {
+  display: block;
+  width: 100%;
+  max-width: 170px;
+  height: auto;
 }
 
 .nav {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  margin-top: 24px;
+  gap: 6px;
+  margin-top: 18px;
 }
 
 .item {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 11px 14px;
-  border-radius: 8px;
+  padding: 12px 14px;
+  border-radius: 12px;
   color: #ffffff;
   font-size: 0.92rem;
   text-decoration: none;
+  transition: background 0.15s;
 }
 
 a.item:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.16);
   color: #ffffff;
   text-decoration: none;
 }
 
-.active {
-  background: rgba(0, 0, 0, 0.22);
+.active,
+a.active:hover {
+  background: #ffffff;
+  color: #972828;
   font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .dimmed {
-  opacity: 0.75;
+  opacity: 0.7;
   cursor: not-allowed;
 }
 
 .bottom {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
   margin-top: auto;
+  padding-top: 16px;
 }
 
 .userCard {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 14px;
-  padding: 14px 8px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .avatar {
@@ -107,6 +105,10 @@ a.item:hover {
 
 @media (max-width: 760px) {
   .sidebar {
+    position: static;
     flex-basis: auto;
+    width: auto;
+    height: auto;
+    border-radius: 0 0 24px 24px;
   }
 }

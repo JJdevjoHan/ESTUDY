@@ -7,7 +7,7 @@ const TICKS = [60, 50, 40, 30, 20, 10, 0];
 export default function PerformanceChart({ subjects, groups }) {
   return (
     <section className={styles.card}>
-      <h2 className={styles.cardTitle}>Overall Performance Analytics</h2>
+      <h2 className={styles.cardTitle}>Performance Analytics</h2>
 
       <ul className={styles.legend}>
         {subjects.map((name, i) => (
