@@ -5,6 +5,8 @@ import { ROUTES } from '../../../routes/paths.js';
 import { DIAGNOSTIC_MINUTES, QUESTION_COUNT } from '../services/diagnosticService.js';
 import styles from './DiagnosticLandingPage.module.css';
 
+
+
 export default function DiagnosticLandingPage() {
   const navigate = useNavigate();
   const { firstName } = useCurrentUser();

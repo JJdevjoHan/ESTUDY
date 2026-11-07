@@ -3,6 +3,7 @@ import DiagnosticLandingPage from './features/diagnostic/pages/DiagnosticLanding
 import DiagnosticTestPage from './features/diagnostic/pages/DiagnosticTestPage.jsx';
 import LoginPage from './features/auth/AuthenticationPages/LoginPage.jsx';
 import RegisterPage from './features/auth/AuthenticationPages/RegisterPage.jsx';
+import LandingPage from './features/landing/pages/LandingPage.jsx';
 import PlaceholderPage from './pages/PlaceholderPage.jsx';
 import RequireDiagnostic, { RequireAuth, RequireRole } from './routes/RequireDiagnostic.jsx';
 import { ROUTES } from './routes/paths.js';
@@ -18,9 +19,12 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Public */}
-        <Route path={ROUTES.LOGIN} element={<LoginPage />} />
-        <Route path={ROUTES.REGISTER} element={<RegisterPage />} />
+        {/* Public: the landing page. Login and Register open as a popup on top of it. */}
+        <Route element={<LandingPage />}>
+          <Route index element={null} />
+          <Route path={ROUTES.LOGIN} element={<LoginPage />} />
+          <Route path={ROUTES.REGISTER} element={<RegisterPage />} />
+        </Route>
 
         {/* Logged in, diagnostic not required yet */}
         <Route element={<RequireAuth />}>
@@ -46,7 +50,7 @@ function App() {
           />
         </Route>
 
-        <Route path="*" element={<Navigate to={ROUTES.LOGIN} replace />} />
+        <Route path="*" element={<Navigate to={ROUTES.HOME} replace />} />
       </Routes>
     </Router>
   );
