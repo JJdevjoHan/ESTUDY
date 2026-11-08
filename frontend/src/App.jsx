@@ -35,21 +35,24 @@ function App() {
             path={ROUTES.DIAGNOSTIC_RESULTS}
             element={<PlaceholderPage title="Diagnostic results" />}
           />
-          <Route element={<RequireRole role={ROLES.TEACHER} />}>
+
+          {/*//require diagnostic to access the student dashboard */}
+        <Route element={<RequireDiagnostic />}>
+          <Route path={ROUTES.DIAGNOSTIC} element={<DiagnosticLandingPage />}/>
+        </Route>
+
+        <Route element={<RequireRole role={ROLES.TEACHER} />}>
           <Route path={ROUTES.DASHBOARD_TEACHER} element={<TeacherDashboardPage />} />
           <Route path={TEACHER_ROUTES.SUBJECTS} element={<SubjectsPage />} />
           <Route path={TEACHER_ROUTES.STUDENT_PROFILE} element={<StudentProfilePage />} />
           <Route path={TEACHER_ROUTES.REQUESTS} element={<RequestQueuePage />} />
+        </Route>
+
+        <Route element={<RequireRole role={ROLES.STUDENT} />}>
+            <Route path={ROUTES.DASHBOARD_STUDENT} element={<StudentDashboardPage />} />
           </Route>
         </Route>
 
-        {/* Locked until the diagnostic is done */}
-        <Route element={<RequireDiagnostic />}>
-          <Route
-            path={ROUTES.DASHBOARD_STUDENT}
-            element={<StudentDashboardPage />}
-          />
-        </Route>
 
         <Route path="*" element={<Navigate to={ROUTES.HOME} replace />} />
       </Routes>
