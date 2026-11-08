@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-/** The rules for roles. The controller calls this; this calls the repository. */
 @Service
 public class RoleService {
 

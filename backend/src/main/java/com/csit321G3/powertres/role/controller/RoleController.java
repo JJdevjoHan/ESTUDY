@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-/** URLs for roles. Send JSON like { "roleName": "Coordinator" }. */
 @RestController
 @RequestMapping("/api/roles")
 public class RoleController {
