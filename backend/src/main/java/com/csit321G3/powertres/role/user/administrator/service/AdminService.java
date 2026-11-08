@@ -2,10 +2,12 @@ package com.csit321G3.powertres.role.user.administrator.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.csit321G3.powertres.role.user.administrator.repository.AdminRepository;
 import com.csit321G3.powertres.role.user.administrator.entity.AdminEntity;
 
+@Service
 public class AdminService {
 
     @Autowired
