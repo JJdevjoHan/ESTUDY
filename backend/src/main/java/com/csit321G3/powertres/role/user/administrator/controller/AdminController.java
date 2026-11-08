@@ -19,25 +19,25 @@ public class AdminController {
         // TODO Auto-generated constructor stub
     }
 
-    // C - Create
+    //C-create(POST)
     @PostMapping("/postNewAdmin")
     public AdminEntity postAdmin(@RequestBody AdminEntity admin) {
         return aserv.postAdmin(admin);
     }
 
-    // R - Read
+    //R-read(GET)
     @GetMapping("/getAllAdmins")
     public List<AdminEntity> getAllAdmins() {
         return aserv.getAllAdmins();
     }
 
-    // U - Update
+    //U-update(PUT)
     @PutMapping("/putAdmin")
     public AdminEntity putAdmin(@RequestParam int id, @RequestBody AdminEntity newAdminDetails) {
         return aserv.putAdmin(id, newAdminDetails);
     }
 
-    // D - Delete
+    //D-delete(DELETE)
     @DeleteMapping("/deleteAdmin/{id}")
     public String deleteAdmin(@PathVariable int id) {
         return aserv.deleteAdmin(id);
