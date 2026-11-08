@@ -38,7 +38,8 @@ public class UserRequest {
         return roleType; 
     }
     public void setRoleType(String roleType) 
-    { this.roleType = roleType; 
+    { 
+        this.roleType = roleType; 
         
     }
 }
