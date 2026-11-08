@@ -48,20 +48,43 @@ Students often discover their weak topics only after major exams, when it is too
 
 ## Setup Steps
 
-```bash
-# 1. Clone the repository
-git clone <repo-url>
-cd estudy
+### Run the backend (Windows PowerShell)
 
-# 2. Copy the environment template and fill in your own values
-cp .env.example .env
+1. Start your local MySQL server.
+2. Create the database configured by the backend:
 
-# 3. Install dependencies (update once the stack is chosen)
-# e.g. npm install
+   ```sql
+   CREATE DATABASE dbestudy;
+   ```
 
-# 4. Run the project (update once the stack is chosen)
-# e.g. npm run dev
+3. Check `backend/src/main/resources/application.properties` and set the MySQL username and password to match your local server.
+4. From the repository root, start the Spring Boot backend:
+
+   ```powershell
+   Set-Location .\backend
+   .\mvnw.cmd spring-boot:run
+   ```
+
+   Keep this terminal open. The API listens on `http://localhost:8080`.
+
+### Test with Postman
+
+Postman sends requests to the running backend; it does not start the backend.
+
+- **List users:** `GET http://localhost:8080/api/user/getAllUsers`
+- **Create a user:** `POST http://localhost:8080/api/user/postNewUser`
+
+For the POST request, select **Body → raw → JSON** and send:
+
+```json
+{
+  "username": "teststudent",
+  "email": "student@example.com",
+  "password": "test-password"
+}
 ```
+
+Use only a test password; the current API stores the password as supplied.
 
 Never commit your real `.env` file. See [CONTRIBUTING.md](CONTRIBUTING.md) for workflow rules.
 
