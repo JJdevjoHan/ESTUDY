@@ -1,9 +1,12 @@
 package com.csit321G3.powertres.role.user.administrator.entity;
 
+import com.csit321G3.powertres.role.user.UserProfile;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -12,54 +15,56 @@ public class AdminEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int adminid;
-    private int userid;
+    private Long adminid;
+
+    @OneToOne
+    @JoinColumn(name = "userid")
+    private UserProfile userProfile;
+
     private String fname;
     private String lname;
     private String accesslevel;
 
-    public AdminEntity() {
+    public AdminEntity() {}
+
+    // Getters and Setters
+    public Long getAdminid() { 
+        return adminid; 
+    }
+    
+    public void setAdminid(Long adminid) { 
+        this.adminid = adminid; 
     }
 
-    // Setters
-    public void setAdminid(int adminid) {
-        this.adminid = adminid;
+    public UserProfile getUserProfile() { 
+        return userProfile; 
+    }
+    
+    public void setUserProfile(UserProfile userProfile) { 
+        this.userProfile = userProfile; 
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public String getFname() { 
+        return fname; 
+    }
+    
+    public void setFname(String fname) { 
+        this.fname = fname; 
     }
 
-    public void setFname(String fname) {
-        this.fname = fname;
+    public String getLname() { 
+        return lname; 
+    }
+    
+    public void setLname(String lname) { 
+        this.lname = lname; 
     }
 
-    public void setLname(String lname) {
-        this.lname = lname;
+    public String getAccesslevel() { 
+        return accesslevel; 
     }
-
-    public void setAccesslevel(String accesslevel) {
-        this.accesslevel = accesslevel;
-    }
-
-    // Getters
-    public int getAdminid() {
-        return adminid;
-    }
-
-    public int getUserid() {
-        return userid;
-    }
-
-    public String getFname() {
-        return fname;
-    }
-
-    public String getLname() {
-        return lname;
-    }
-
-    public String getAccesslevel() {
-        return accesslevel;
+    
+    public void setAccesslevel(String accesslevel) { 
+        this.accesslevel = accesslevel; 
     }
 }
