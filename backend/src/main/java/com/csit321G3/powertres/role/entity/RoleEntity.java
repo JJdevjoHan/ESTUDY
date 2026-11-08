@@ -18,7 +18,30 @@ public class RoleEntity {
     @Column(nullable = false, unique = true)
     private String roleName;
 
-    public Long getRoleId() { return roleId; }
-    public String getRoleName() { return roleName; }
-    public void setRoleName(String roleName) { this.roleName = roleName; }
+    //for jpa default constructor
+    public RoleEntity() 
+    {
+        //default
+    }
+
+    public Long getRoleId() 
+    { return roleId; 
+        
+    }
+    
+    //setter for roleId
+    public void setRoleId(Long roleId) 
+    { 
+        this.roleId = roleId; 
+    }
+
+    public String getRoleName() 
+    { 
+        return roleName; 
+    }
+
+    public void setRoleName(String roleName) 
+    { 
+        this.roleName = roleName; 
+    }
 }

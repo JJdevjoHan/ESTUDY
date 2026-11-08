@@ -8,7 +8,7 @@ import com.csit321G3.powertres.role.user.administrator.entity.AdminEntity;
 import com.csit321G3.powertres.role.user.administrator.service.AdminService;
 
 @RestController
-@RequestMapping("/admin/api")
+@RequestMapping("/api/admin")
 @CrossOrigin(origins = "http://localhost:3000")
 public class AdminController {
 
