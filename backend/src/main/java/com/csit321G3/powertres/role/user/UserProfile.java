@@ -1,50 +1,68 @@
 package com.csit321G3.powertres.role.user;
 
-import com.csit321G3.powertres.role.Role;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
+import com.csit321G3.powertres.role.entity.RoleEntity;
 
 @Entity
-@Table(name = "user_profiles")
+@Table(name = "user_profile")
 public class UserProfile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long userid;
 
-    private String fName;
-    private String lName;
-
-    @Column(nullable = false, unique = true)
-    private String email;
-
-    /** The school ID (e.g. 2024-0001). */
-    @Column(nullable = false, unique = true)
     private String username;
-
-    /** BCrypt hash, never the real password. */
-    @Column(nullable = false)
+    private String email;
     private String password;
+    
+    @Column(name = "created_at")
+    private LocalDateTime createdAt = LocalDateTime.now();
 
-    @ManyToOne(optional = false)
-    private Role role;
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private RoleEntity role;
 
-    public Long getUserId() { return userId; }
-    public String getFName() { return fName; }
-    public void setFName(String fName) { this.fName = fName; }
-    public String getLName() { return lName; }
-    public void setLName(String lName) { this.lName = lName; }
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
-    public String getUsername() { return username; }
-    public void setUsername(String username) { this.username = username; }
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
-    public Role getRole() { return role; }
-    public void setRole(Role role) { this.role = role; }
+    public UserProfile() {}
+
+    public Long getUserid() { 
+        return userid; 
+    }
+    
+    public void setUserid(Long userid) { 
+        this.userid = userid; 
+    }
+
+    public String getUsername() { 
+        return username; 
+    }
+    
+    public void setUsername(String username) { 
+        this.username = username; 
+    }
+
+    public String getEmail() { 
+        return email; 
+    }
+    
+    public void setEmail(String email) { 
+        this.email = email; 
+    }
+
+    public String getPassword() { 
+        return password; 
+    }
+    
+    public void setPassword(String password) { 
+        this.password = password; 
+    }
+
+    public LocalDateTime getCreatedAt() { 
+        return createdAt; 
+    }
+    
+    public void setCreatedAt(LocalDateTime createdAt) { 
+        this.createdAt = createdAt; 
+    }
 }
