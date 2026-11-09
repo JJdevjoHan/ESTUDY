@@ -25,7 +25,7 @@ public class UserController {
         return userv.saveUser(userProfile);
     }
 
-    @GetMapping("/putUser")
+    @PutMapping("/putUser")
     public UserProfile putUser(@RequestBody Long id, @RequestParam UserProfile usernewDetails) {
         return userv.putUser(id, usernewDetails);
     }

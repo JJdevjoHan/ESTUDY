@@ -1,7 +1,10 @@
 package com.csit321G3.powertres.role.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
 import com.csit321G3.powertres.role.user.UserProfile;
 import com.csit321G3.powertres.role.user.administrator.entity.AdminEntity;
 
@@ -26,12 +29,13 @@ public class UserService {
 
     // U - Update
     public UserProfile putUser(Long id, UserProfile newUserDetails) {
-        UserProfile user = urepo.findById(id).get();
-        user.setUserID(newUserDetails.getUserID());
+        UserProfile user = urepo.findById(id).
+        orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
+        //user.setUserID(newUserDetails.getUserID());
         user.setUsername(newUserDetails.getUsername());
         user.setEmail(newUserDetails.getEmail());
         user.setPassword(newUserDetails.getPassword());
-        user.setCreatedAt(newUserDetails.getCreatedAt());
+        //user.setCreatedAt(newUserDetails.getCreatedAt());
 
         return urepo.save(user);
     }
