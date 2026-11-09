@@ -1,0 +1,52 @@
+### VS Code "REST Client" extension. Start the backend, then click "Send Request".
+
+@baseUrl = http://localhost:8080/api
+
+### ---------- ACCOUNTS ----------
+
+### Create (role: student, teacher or admin)
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{ "role": "student", "fName": "Juan", "lName": "Dela Cruz", "email": "juan@school.edu", "username": "2024-0001", "password": "Student123", "yearLevel": "2nd Year", "section": "BSIT-2A" }
+
+### List all (add ?role=student to filter)
+GET {{baseUrl}}/users
+
+### Get one
+GET {{baseUrl}}/users/1
+
+### Update (send only what changes)
+PUT {{baseUrl}}/users/1
+Content-Type: application/json
+
+{ "lName": "D. Dela Cruz", "section": "BSIT-2B" }
+
+### Delete
+DELETE {{baseUrl}}/users/1
+
+### Login (email or school ID)
+POST {{baseUrl}}/users/login
+Content-Type: application/json
+
+{ "email": "juan@school.edu", "password": "Student123" }
+
+### ---------- ROLES ----------
+
+### List
+GET {{baseUrl}}/roles
+
+### Create
+POST {{baseUrl}}/roles
+Content-Type: application/json
+
+{ "roleName": "Coordinator" }
+
+### Rename
+PUT {{baseUrl}}/roles/4
+Content-Type: application/json
+
+{ "roleName": "Advisor" }
+
+### Delete
+DELETE {{baseUrl}}/roles/4
