@@ -26,6 +26,21 @@ function App() {
           <Route path={ROUTES.LOGIN} element={<LoginPage />} />
           <Route path={ROUTES.REGISTER} element={<RegisterPage />} />
         </Route>
+        
+        <Route
+            path={ROUTES.FORGOT_PASSWORD}
+            element={<PlaceholderPage title="Password Recovery" />}
+          />
+
+          <Route
+            path={ROUTES.LOGOUT}
+            element={<PlaceholderPage title="You have logged out..." />}
+          />
+
+          <Route
+            path={ROUTES.PRFOILE}
+            element={<PlaceholderPage title="You can now edit your account..." />}
+          />
 
         {/* Logged in, diagnostic not required yet */}
         <Route element={<RequireAuth />}>
@@ -35,6 +50,7 @@ function App() {
             path={ROUTES.DIAGNOSTIC_RESULTS}
             element={<PlaceholderPage title="Diagnostic results" />}
           />
+        </Route>
 
           {/*//require diagnostic to access the student dashboard */}
         <Route element={<RequireDiagnostic />}>
@@ -50,9 +66,7 @@ function App() {
 
         <Route element={<RequireRole role={ROLES.STUDENT} />}>
             <Route path={ROUTES.DASHBOARD_STUDENT} element={<StudentDashboardPage />} />
-          </Route>
         </Route>
-
 
         <Route path="*" element={<Navigate to={ROUTES.HOME} replace />} />
       </Routes>

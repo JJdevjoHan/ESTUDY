@@ -26,7 +26,7 @@ public class AdminController {
     }
 
     //R-read(GET)
-    @GetMapping("/getAllAdmins")
+    @GetMapping("/getAllAdmin")
     public List<AdminEntity> getAllAdmins() {
         return aserv.getAllAdmins();
     }

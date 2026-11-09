@@ -9,8 +9,9 @@ const NAV_ITEMS = [
   { key: 'scores', label: 'Scores' },
   { key: 'testHub', label: 'Test Hub', to: ROUTES.DIAGNOSTIC },
   { key: 'warnings', label: 'Warnings' },
-  { key: 'profile', label: 'Profile' },
-  { key: 'settings', label: 'Settings' },
+  { key: 'profile', label: 'Profile', to: ROUTES.PRFOILE},
+  { key: 'settings', label: 'Settings'},
+  { key: 'logout', label: 'Log out' , to: ROUTES.LOGOUT},
 ];
 
 export default function Sidebar({ locked = false, activeKey = 'testHub' }) {

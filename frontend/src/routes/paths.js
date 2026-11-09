@@ -3,8 +3,10 @@
 export const ROUTES = {
   HOME: '/', // the landing page
   LOGIN: '/login',
+  LOGOUT: '/logout',
+  PRFOILE: '/profile',
   REGISTER: '/register/:role', // used by <Route path=...>
-  FORGOT_PASSWORD: '/forgot-password', // page not built yet
+  FORGOT_PASSWORD: '/forgot-password', //temp
   DASHBOARD_STUDENT: '/student/dashboard',
   DASHBOARD_TEACHER: '/teacher/dashboard',
   DASHBOARD_ADMIN: '/admin/dashboard',
