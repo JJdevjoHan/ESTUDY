@@ -9,5 +9,6 @@ public class EstudyApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(EstudyApplication.class, args);
 	}
-
+	//./mvnw spring-boot:run
+ 
 }
