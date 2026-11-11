@@ -14,23 +14,24 @@ import StudentProfilePage from './features/teacher/pages/StudentProfilePage.jsx'
 import { TEACHER_ROUTES } from './features/teacher/routes/teacherPaths.js';
 import RequestQueuePage from './features/teacher/pages/RequestQueuePage.jsx';
 import StudentDashboardPage from './features/students/pages/StudentDashboardPage.jsx';
+import ForgotPasswordPage from './features/auth/AuthenticationPages/ForgotPasswordPage.jsx';
+import ResetPasswordPage from './features/auth/AuthenticationPages/ResetPasswordPage.jsx';
 
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Public: the landing page. Login and Register open as a popup on top of it. */}
+       
         <Route element={<LandingPage />}>
           <Route index element={null} />
           <Route path={ROUTES.LOGIN} element={<LoginPage />} />
           <Route path={ROUTES.REGISTER} element={<RegisterPage />} />
+          <Route path={ROUTES.FORGOT_PASSWORD} element={<ForgotPasswordPage />} />
+          <Route path={ROUTES.RESET_PASSWORD} element={<ResetPasswordPage />} />
         </Route>
         
-        <Route
-            path={ROUTES.FORGOT_PASSWORD}
-            element={<PlaceholderPage title="Password Recovery" />}
-          />
+      
 
           <Route
             path={ROUTES.LOGOUT}
