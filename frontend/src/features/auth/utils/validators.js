@@ -43,3 +43,12 @@ export const validateRegistration = (values, idLabel) => ({
     ? ''
     : 'You must agree to the Terms of Use and Privacy Policy.',
 });
+
+export const validateForgotPassword = ({ email }) => ({
+  email: validateEmail(email),
+});
+
+export const validateResetPassword = ({ password, confirmPassword }) => ({
+  password: validateNewPassword(password),
+  confirmPassword: validateConfirmPassword(password, confirmPassword),
+});
