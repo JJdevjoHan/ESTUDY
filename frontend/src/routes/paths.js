@@ -6,7 +6,8 @@ export const ROUTES = {
   LOGOUT: '/logout',
   PRFOILE: '/profile',
   REGISTER: '/register/:role', // used by <Route path=...>
-  FORGOT_PASSWORD: '/forgot-password', //temp
+  FORGOT_PASSWORD: '/forgot-password',
+  RESET_PASSWORD: '/reset-password',
   DASHBOARD_STUDENT: '/student/dashboard',
   DASHBOARD_TEACHER: '/teacher/dashboard',
   DASHBOARD_ADMIN: '/admin/dashboard',
