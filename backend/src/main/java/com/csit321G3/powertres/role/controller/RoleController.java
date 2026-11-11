@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/roles")
+@RequestMapping("/api/role")
 public class RoleController {
 
     private final RoleService service;
@@ -24,28 +24,28 @@ public class RoleController {
         this.service = service;
     }
 
-    @GetMapping
+    @GetMapping("/getAllRoles")
     public List<RoleEntity> list() {
         return service.list();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getRole/{id}")
     public RoleEntity get(@PathVariable Long id) {
         return service.get(id);
     }
 
-    @PostMapping
+    @PostMapping("/postNewRole")
     @ResponseStatus(HttpStatus.CREATED)
     public RoleEntity create(@RequestBody RoleEntity body) {
         return service.create(body.getRoleName());
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/putRole/{id}")
     public RoleEntity update(@PathVariable Long id, @RequestBody RoleEntity body) {
         return service.update(id, body.getRoleName());
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteRole/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
         service.delete(id);
