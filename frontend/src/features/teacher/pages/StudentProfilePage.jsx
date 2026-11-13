@@ -1,7 +1,8 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import TeacherLayout from '../components/TeacherLayout.jsx';
-import { subjects, students, earlyWarningFlags } from '../data/teacherMockData.js';
+import { earlyWarningFlags } from '../data/teacherMockData.js';
+import { useClassData } from '../store/classStore.js';
 import { useRechecks } from '../store/recheckStore.js';
 import { getAverage, getStatus, STATUS_LABELS } from '../utils/studentUtils.js';
 import { TEACHER_ROUTES } from '../routes/teacherPaths.js';
@@ -20,6 +21,7 @@ export default function StudentProfilePage() {
   const { studentId } = useParams();
   const navigate = useNavigate();
   const allRequests = useRechecks();
+  const { subjects, students } = useClassData();
   const student = students.find((s) => s.id === studentId);
 
   const backButton = (

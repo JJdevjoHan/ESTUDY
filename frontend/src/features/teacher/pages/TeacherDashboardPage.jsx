@@ -8,11 +8,10 @@ import RecheckRequests from '../components/RecheckRequests.jsx';
 import PerformanceChart from '../components/PerformanceChart.jsx';
 import RecentUpdates from '../components/RecentUpdates.jsx';
 import { useRechecks } from '../store/recheckStore.js';
+import { useClassData } from '../store/classStore.js';
 import { TEACHER_ROUTES } from '../routes/teacherPaths.js';
 import {
   SUBJECT_NAMES,
-  subjects,
-  students,
   earlyWarningFlags,
   performanceGroups,
   recentUpdates,
@@ -31,7 +30,7 @@ const plural = (count, word) => `${count} ${word}${count === 1 ? '' : 's'}`;
 export default function TeacherDashboardPage() {
   const user = authService.getCurrentUser?.() ?? null;
   const firstName = (user?.fullName || user?.name || 'Teacher').split(' ')[0];
-
+  const { subjects, students } = useClassData();
   const rechecks = useRechecks();
   const openRechecks = rechecks.filter((r) => r.status === 'in-review').length;
 

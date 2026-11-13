@@ -1,0 +1,178 @@
+/* Buttons */
+.actionBar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.primary,
+.secondary,
+.danger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary {
+  border: 1px solid #972828;
+  background: #972828;
+  color: #ffffff;
+}
+
+.primary:hover {
+  background: #7c1f1f;
+}
+
+.secondary {
+  border: 1px solid #972828;
+  background: #ffffff;
+  color: #972828;
+}
+
+.secondary:hover {
+  background: #fdf1ee;
+}
+
+.danger {
+  border: 1px solid #cbd2dc;
+  background: #ffffff;
+  color: #b42318;
+}
+
+.danger:hover {
+  border-color: #b42318;
+  background: #fef3f2;
+}
+
+.primary:disabled,
+.secondary:disabled,
+.danger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Panels */
+.panel {
+  padding: 18px 20px;
+  border: 1px solid #eadfd9;
+  border-radius: 18px;
+  background: #ffffff;
+}
+
+.panelTitle {
+  margin-bottom: 12px;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--color-heading);
+}
+
+.hint {
+  margin-bottom: 12px;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.formRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.field {
+  flex: 1;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.field input,
+.field select {
+  padding: 9px 12px;
+  border: 1px solid #cbd2dc;
+  border-radius: 8px;
+  background: #ffffff;
+  font: inherit;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.field input:focus,
+.field select:focus {
+  outline: 2px solid #f3c3b8;
+  border-color: #972828;
+}
+
+.formActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.error,
+.success {
+  margin-top: 10px;
+  font-size: 0.82rem;
+}
+
+.error {
+  color: var(--color-error);
+}
+
+.success {
+  color: #1d6b35;
+}
+
+/* Upload */
+.uploadRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.fileName {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.chip {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #f9e4df;
+  color: #972828;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.previewTitle {
+  margin: 12px 0 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.skipped {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  font-size: 0.8rem;
+  color: #b45309;
+}
