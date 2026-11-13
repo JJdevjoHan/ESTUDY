@@ -96,3 +96,47 @@
   text-align: center;
   color: var(--color-text-muted);
 }
+.cardHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.cardHeader h2 {
+  margin: 0;
+}
+
+.headerActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.panelSlot {
+  margin-bottom: 14px;
+}
+
+.rowActions {
+  display: flex;
+  gap: 6px;
+}
+
+.dropBtn {
+  padding: 5px 10px;
+  border: 1px solid #972828;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #972828;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.dropBtn:hover {
+  background: #972828;
+  color: #ffffff;
+}
