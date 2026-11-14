@@ -19,12 +19,14 @@ public class TeacherEntity {
     private Long teacherId;
 
     @OneToOne(optional = false)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false, unique = true)
     private UserProfile user;
+
+    private String firstName;
+    private String lastName;
 
     private String department;
 
-    // for JPA
     protected TeacherEntity() {
     }
 
@@ -38,6 +40,22 @@ public class TeacherEntity {
 
     public UserProfile getUser() {
         return user;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getDepartment() {

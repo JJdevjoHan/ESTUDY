@@ -29,10 +29,7 @@ public class StudentEntity {
     @Column(nullable = false)
     private String lastName;
 
-    @Column(nullable = false)
     private Integer yearLevel;
-
-    @Column(nullable = false)
     private String section;
 
     protected StudentEntity() {
