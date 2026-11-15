@@ -52,9 +52,9 @@ public class AttemptService {
 
         int correct = 0;
         boolean allAnswered = true;
-        // topic -> {correct, total}
+       
         Map<String, int[]> topicCounts = new LinkedHashMap<>();
-        // (question, isCorrect) kept so details can be saved after the attempt has an id
+        
         Map<QuestionEntity, Boolean> results = new LinkedHashMap<>();
 
         for (QuestionEntity q : subjectQuestions) {
@@ -113,7 +113,7 @@ public class AttemptService {
         attempts.deleteById(attemptId);
     }
 
-    // Rebuilds the per-topic breakdown from the saved detail rows.
+    
     private Map<String, TopicScore> byTopicOf(AttemptEntity attempt) {
         Map<String, int[]> counts = new LinkedHashMap<>();
         for (AttemptDetailEntity d : details.findByAttemptAttemptId(attempt.getAttemptId())) {
