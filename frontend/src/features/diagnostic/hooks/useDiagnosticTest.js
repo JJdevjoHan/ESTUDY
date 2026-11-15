@@ -55,8 +55,8 @@ export default function useDiagnosticTest() {
     setSubmitError('');
 
     try {
-      await submitDiagnostic(answersRef.current);
-      navigate(ROUTES.DIAGNOSTIC_RESULTS, { replace: true });
+      const result = await submitDiagnostic(answersRef.current);
+      navigate(ROUTES.DIAGNOSTIC_RESULTS, { replace: true, state: { result } });
     } catch (error) {
       submittedRef.current = false;
       setSubmitError(error.message || 'Could not submit your test. Try again.');

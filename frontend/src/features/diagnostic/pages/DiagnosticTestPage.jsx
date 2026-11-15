@@ -7,6 +7,8 @@ import useDiagnosticTest from '../hooks/useDiagnosticTest.js';
 import { DIAGNOSTIC_SUBJECT } from '../services/diagnosticService.js';
 import styles from './DiagnosticTestPage.module.css';
 
+
+
 export default function DiagnosticTestPage() {
   const test = useDiagnosticTest();
 
