@@ -119,8 +119,17 @@ export async function register({ role, fullName, email, schoolId, password }) {
   return data;
 }
 
-export const requestPasswordReset = ({ email }) =>
-  post('/users/forgot-password', { email: email.trim() });
+export const verifyRecovery = ({ email, schoolId, fullName }) =>
+  post('/users/verify-recovery', {
+    email: email.trim(),
+    schoolId: schoolId.trim(),
+    fullName: fullName.trim(),
+  });
 
-export const resetPassword = ({ token, password }) =>
-  post('/users/reset-password', { token, newPassword: password });
+export const resetPassword = ({ token, email, schoolId, password }) =>
+  post('/users/reset-password', {
+    token,
+    email: email.trim(),
+    schoolId: schoolId.trim(),
+    newPassword: password,
+  });

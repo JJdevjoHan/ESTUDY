@@ -4,6 +4,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 
 import Button from '../../../components/common/Button/Button.jsx';
 import PasswordField from '../../../components/common/PasswordField/PasswordField.jsx';
+import TextField from '../../../components/common/TextField/TextField.jsx';
 import useForm from '../../../hooks/useForm.js';
 import { ROUTES } from '../../../routes/paths.js';
 import AuthModal from '../components/AuthModal/AuthModal.jsx';
@@ -21,7 +22,7 @@ export default function ResetPasswordPage() {
   const [isDone, setIsDone] = useState(false);
 
   const { values, errors, handleChange, handleSubmit } = useForm({
-    initialValues: { password: '', confirmPassword: '' },
+    initialValues: { email: '', schoolId: '', password: '', confirmPassword: '' },
     validate: validateResetPassword,
   });
 
@@ -29,7 +30,12 @@ export default function ResetPasswordPage() {
     setIsSubmitting(true);
     setSubmitError('');
     try {
-      await authService.resetPassword({ token, password: formValues.password });
+      await authService.resetPassword({
+        token,
+        email: formValues.email,
+        schoolId: formValues.schoolId,
+        password: formValues.password,
+      });
       setIsDone(true);
     } catch (error) {
       setSubmitError(error.message);
@@ -73,13 +79,37 @@ export default function ResetPasswordPage() {
       <header className={styles.header}>
         <span className={styles.eyebrow}>Account recovery</span>
         <h1 id="auth-title" className={styles.title}>Set a new password</h1>
-        <p className={styles.subtitle}>Choose a password you haven&apos;t used before.</p>
+        <p className={styles.subtitle}>
+          Confirm the email and ID you registered with, then choose a new password.
+        </p>
       </header>
 
       <form className={styles.form} onSubmit={handleSubmit(submitNewPassword)} noValidate>
         {submitError && (
           <p className={styles.formError} role="alert">{submitError}</p>
         )}
+
+        <TextField
+          id="email"
+          name="email"
+          type="email"
+          label="School email"
+          placeholder="you@example.com"
+          autoComplete="email"
+          value={values.email}
+          onChange={handleChange}
+          error={errors.email}
+        />
+
+        <TextField
+          id="schoolId"
+          name="schoolId"
+          label="Student / Teacher ID"
+          placeholder="00-0000-000"
+          value={values.schoolId}
+          onChange={handleChange}
+          error={errors.schoolId}
+        />
 
         <PasswordField
           id="password"
