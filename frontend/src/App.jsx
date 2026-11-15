@@ -32,26 +32,22 @@ function App() {
           <Route path={ROUTES.RESET_PASSWORD} element={<ResetPasswordPage />} />
         </Route>
         
-      
-
           <Route
             path={ROUTES.LOGOUT}
             element={<PlaceholderPage title="You have logged out..." />}
           />
 
           <Route
-            path={ROUTES.PROFILE}
-            element={<PlaceholderPage title="You can now edit your account..." />}
+            path={ROUTES.PROFILE} element={<ProfilePage/>}
           />
 
-        {/* Logged in, diagnostic not required yet */}
         <Route element={<RequireAuth />}>
           <Route path={ROUTES.DIAGNOSTIC} element={<DiagnosticLandingPage />} />
           <Route path={ROUTES.DIAGNOSTIC_TEST} element={<DiagnosticTestPage />} />
           <Route path={ROUTES.DIAGNOSTIC_RESULTS} element={<DiagnosticResultsPage />} />
         </Route>
 
-          {/*//require diagnostic to access the student dashboard */}
+          {/*required if first time user*/}
         <Route element={<RequireDiagnostic />}>
           <Route path={ROUTES.DIAGNOSTIC} element={<DiagnosticLandingPage />}/>
         </Route>

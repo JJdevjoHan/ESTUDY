@@ -1,11 +1,10 @@
-// Single source of truth for every URL in the app.
-// Never type a path string inside a component. Import it from here instead.
+//ari ang routing, whats here should match sa backend routes and frontend
 export const ROUTES = {
-  HOME: '/', // the landing page
+  HOME: '/', //landing page which is the first thing
   LOGIN: '/login',
   LOGOUT: '/logout',
   PROFILE: '/profile',
-  REGISTER: '/register/:role', // used by <Route path=...>
+  REGISTER: '/register/:role',
   FORGOT_PASSWORD: '/forgot-password',
   RESET_PASSWORD: '/reset-password',
   DASHBOARD_STUDENT: '/student/dashboard',
