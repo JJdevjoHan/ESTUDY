@@ -44,11 +44,15 @@ export const validateRegistration = (values, idLabel) => ({
     : 'You must agree to the Terms of Use and Privacy Policy.',
 });
 
-export const validateForgotPassword = ({ email }) => ({
+export const validateForgotPassword = ({ email, schoolId, fullName }) => ({
   email: validateEmail(email),
+  schoolId: validateRequired(schoolId, 'School ID'),
+  fullName: validateRequired(fullName, 'Full name'),
 });
 
-export const validateResetPassword = ({ password, confirmPassword }) => ({
+export const validateResetPassword = ({ email, schoolId, password, confirmPassword }) => ({
+  email: validateEmail(email),
+  schoolId: validateRequired(schoolId, 'School ID'),
   password: validateNewPassword(password),
   confirmPassword: validateConfirmPassword(password, confirmPassword),
 });
