@@ -18,7 +18,7 @@ export default function DiagnosticResultsPage() {
   const topics = Object.entries(byTopic);
 
   return (
-    <StudentLayout sidebarLocked>
+    <StudentLayout>
       <section className={styles.scoreCard}>
         <div>
           <p className={styles.tag}>Diagnostic results</p>

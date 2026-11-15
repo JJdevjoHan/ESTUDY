@@ -1,10 +1,8 @@
-// MOCK SERVICE. Replace the bodies with real API calls when your backend is ready.
-// Keep the exported names and return shapes the same so the UI doesn't change.
-
 export const DIAGNOSTIC_SUBJECT = 'Mathematics';
 export const DIAGNOSTIC_MINUTES = 20;
 
-const USER_STORAGE_KEY = 'user'; // must match the key authService uses to save the user
+const USER_STORAGE_KEY = 'user'; 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const QUESTIONS = [
   {
@@ -133,10 +131,27 @@ export const QUESTION_COUNT = QUESTIONS.length;
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-/** Returns the questions WITHOUT the correct answers. Grading belongs on the server. */
+
 export async function getQuestions() {
-  await wait(300);
-  return QUESTIONS.map(({ correctId, ...question }) => question);
+  
+  if (!API_BASE_URL) {
+    await wait(300);
+    return QUESTIONS.map(({ correctId, ...question }) => question);
+  }
+
+  const response = await fetch(
+    `${API_BASE_URL}/question/getQuestionsBySubject/${encodeURIComponent(DIAGNOSTIC_SUBJECT)}`
+  );
+  if (!response.ok) throw new Error('Could not load the test. Refresh to try again.');
+  return response.json();
+}
+
+function getSavedUser() {
+  try {
+    return JSON.parse(localStorage.getItem(USER_STORAGE_KEY));
+  } catch {
+    return null;
+  }
 }
 
 function markDiagnosticComplete() {
@@ -149,12 +164,27 @@ function markDiagnosticComplete() {
       JSON.stringify({ ...user, hasCompletedDiagnostic: true })
     );
   } catch {
-    // Storage unavailable or corrupted. The backend flag is the real source of truth.
+    
   }
 }
 
-/** answers: { [questionId]: optionId } */
+
 export async function submitDiagnostic(answers) {
+  if (API_BASE_URL) {
+    const user = getSavedUser();
+    const response = await fetch(`${API_BASE_URL}/attempt/postNewAttempt`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId: user?.userId, subject: DIAGNOSTIC_SUBJECT, answers }),
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(data.message ?? 'Could not submit your test. Try again.');
+
+    markDiagnosticComplete();
+    
+    return data;
+  }
+
   await wait(500);
 
   const byTopic = {};
@@ -171,6 +201,8 @@ export async function submitDiagnostic(answers) {
   markDiagnosticComplete();
 
   const total = QUESTIONS.length;
+  
   const score = Math.round((correct / total) * 10000) / 100;
+
   return { correct, total, score, byTopic };
 }
