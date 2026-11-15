@@ -7,7 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-// Holds the correct answer on the server, so the score can't be faked from the browser.
+
 @Entity
 @Table(name = "question")
 public class QuestionEntity {
@@ -17,16 +17,16 @@ public class QuestionEntity {
     private Long questionId;
 
     @Column(nullable = false)
-    private String subject;   // e.g. "Mathematics"
+    private String subject;  
 
     @Column(nullable = false)
-    private String topic;     // subtopic, e.g. "Algebra: linear equations"
+    private String topic;    
 
     @Column(nullable = false, length = 1000)
     private String text;
 
     @Column(nullable = false)
-    private String correctOption;  // e.g. "b"
+    private String correctOption;  
 
     public QuestionEntity() {
     }
