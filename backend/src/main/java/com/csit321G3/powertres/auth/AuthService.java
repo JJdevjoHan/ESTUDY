@@ -20,6 +20,7 @@ import com.csit321G3.powertres.role.user.student.entity.StudentEntity;
 import com.csit321G3.powertres.role.user.student.repository.StudentRepository;
 import com.csit321G3.powertres.role.user.teacher.entity.TeacherEntity;
 import com.csit321G3.powertres.role.user.teacher.repository.TeacherRepository;
+import com.csit321G3.powertres.attempt.repository.AttemptRepository;
 
 @Service
 public class AuthService {
@@ -30,15 +31,17 @@ public class AuthService {
     private final TeacherRepository teachers;
     private final AdminRepository admins;
     private final PasswordEncoder encoder;
+    private final AttemptRepository attempts;
 
     public AuthService(UserRepository users, RoleRepository roles, StudentRepository students,
-            TeacherRepository teachers, AdminRepository admins, PasswordEncoder encoder) {
+            TeacherRepository teachers, AdminRepository admins, PasswordEncoder encoder, AttemptRepository attempts) {
         this.users = users;
         this.roles = roles;
         this.students = students;
         this.teachers = teachers;
         this.admins = admins;
         this.encoder = encoder;
+        this.attempts = attempts;
     }
 
     /**
@@ -114,13 +117,16 @@ public class AuthService {
         String role = user.getRole() == null ? "" : user.getRole().getRoleName().toLowerCase();
         String fullName = user.getUsername();
         Integer year = null;
+        boolean hasCompletedDiagnostic = false;
 
         switch (role) {
+            
             case "student" -> {
                 StudentEntity s = students.findByUser(user).orElse(null);
                 if (s != null) {
                     fullName = (s.getFirstName() + " " + s.getLastName()).trim();
                     year = s.getYearLevel();
+                    hasCompletedDiagnostic = attempts.existsByStudentStudentId(s.getStudentId());
                 }
             }
             case "teacher" -> {
@@ -139,9 +145,6 @@ public class AuthService {
             default -> {
             }
         }
-
-        // TODO: once AssessmentAttempt exists, set this from the student's completed diagnostic attempt
-        boolean hasCompletedDiagnostic = false;
 
         return new AuthResponse(new UserInfo(user.getUserID(), role, fullName, user.getEmail(),
                 user.getUsername(), year, hasCompletedDiagnostic));
