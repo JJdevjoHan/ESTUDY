@@ -4,7 +4,7 @@ const USER_KEY = 'user';
 const wait = (milliseconds) =>
   new Promise((resolve) => setTimeout(resolve, milliseconds));
 
-function saveUser(user) {
+export function saveUser(user) {
   try {
     localStorage.setItem(USER_KEY, JSON.stringify(user));
   } catch {

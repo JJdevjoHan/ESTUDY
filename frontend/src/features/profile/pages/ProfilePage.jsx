@@ -76,7 +76,7 @@ function EditCard({ profile, isTeacher, onSaved }) {
             section: v.section.trim(),
           };
       const updated = await profileService.updateProfile(payload);
-      onSaved(updated); // the details card on the right now shows the new values
+      onSaved(updated);//unsay naa sa right ky ma update once ma saved.
       setMessage('Profile saved.');
     } catch (e) {
       setError(e.message);

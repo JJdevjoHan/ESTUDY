@@ -26,7 +26,7 @@ public class UserController {
         return userv.getAllUsers();
     }
 
-    // The password is now hashed in UserService. Real sign-ups still go through /api/auth/register.
+    //hashed pass
     @PostMapping("/postNewUser")
     public UserProfile postNewUser(@RequestBody UserProfile userProfile) {
         return userv.saveUser(userProfile);
