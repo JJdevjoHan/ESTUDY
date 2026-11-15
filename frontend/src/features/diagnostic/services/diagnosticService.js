@@ -170,5 +170,7 @@ export async function submitDiagnostic(answers) {
 
   markDiagnosticComplete();
 
-  return { correct, total: QUESTIONS.length, byTopic };
+  const total = QUESTIONS.length;
+  const score = Math.round((correct / total) * 10000) / 100;
+  return { correct, total, score, byTopic };
 }

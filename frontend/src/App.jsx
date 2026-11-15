@@ -16,6 +16,7 @@ import RequestQueuePage from './features/teacher/pages/RequestQueuePage.jsx';
 import StudentDashboardPage from './features/students/pages/StudentDashboardPage.jsx';
 import ForgotPasswordPage from './features/auth/AuthenticationPages/ForgotPasswordPage.jsx';
 import ResetPasswordPage from './features/auth/AuthenticationPages/ResetPasswordPage.jsx';
+import DiagnosticResultsPage from './features/diagnostic/pages/DiagnosticResultsPage.jsx';
 
 
 function App() {
@@ -47,10 +48,7 @@ function App() {
         <Route element={<RequireAuth />}>
           <Route path={ROUTES.DIAGNOSTIC} element={<DiagnosticLandingPage />} />
           <Route path={ROUTES.DIAGNOSTIC_TEST} element={<DiagnosticTestPage />} />
-          <Route
-            path={ROUTES.DIAGNOSTIC_RESULTS}
-            element={<PlaceholderPage title="Diagnostic results" />}
-          />
+          <Route path={ROUTES.DIAGNOSTIC_RESULTS} element={<DiagnosticResultsPage />} />
         </Route>
 
           {/*//require diagnostic to access the student dashboard */}
