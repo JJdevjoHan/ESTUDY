@@ -10,5 +10,5 @@ public class EstudyApplication {
 		SpringApplication.run(EstudyApplication.class, args);
 	}
 	//./mvnw spring-boot:run
- 
+
 }

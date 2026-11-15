@@ -4,7 +4,7 @@ export const ROUTES = {
   HOME: '/', // the landing page
   LOGIN: '/login',
   LOGOUT: '/logout',
-  PRFOILE: '/profile',
+  PROFILE: '/profile',
   REGISTER: '/register/:role', // used by <Route path=...>
   FORGOT_PASSWORD: '/forgot-password',
   RESET_PASSWORD: '/reset-password',

@@ -40,7 +40,7 @@ function App() {
           />
 
           <Route
-            path={ROUTES.PRFOILE}
+            path={ROUTES.PROFILE}
             element={<PlaceholderPage title="You can now edit your account..." />}
           />
 
