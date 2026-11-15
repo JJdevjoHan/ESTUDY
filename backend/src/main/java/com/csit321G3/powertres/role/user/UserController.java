@@ -1,6 +1,7 @@
 package com.csit321G3.powertres.role.user;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,6 +26,7 @@ public class UserController {
         return userv.getAllUsers();
     }
 
+    //hashed pass
     @PostMapping("/postNewUser")
     public UserProfile postNewUser(@RequestBody UserProfile userProfile) {
         return userv.saveUser(userProfile);
@@ -38,5 +40,23 @@ public class UserController {
     @DeleteMapping("/deleteUser/{id}")
     public String deleteUser(@PathVariable Long id) {
         return userv.deleteUser(id);
+    }
+
+    //reused for the profilepage
+
+    @GetMapping("/getProfile/{id}")
+    public UserResponse getProfile(@PathVariable Long id) {
+        return userv.getProfile(id);
+    }
+
+    @PutMapping("/putProfile/{id}")
+    public UserResponse putProfile(@PathVariable Long id, @RequestBody UserRequest request) {
+        return userv.updateProfile(id, request);
+    }
+
+    @PutMapping("/changePassword/{id}")
+    public Map<String, String> changePassword(@PathVariable Long id, @RequestBody UserRequest request) {
+        userv.changePassword(id, request);
+        return Map.of("message", "Password updated");
     }
 }
