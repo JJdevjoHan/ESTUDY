@@ -18,6 +18,8 @@ import com.csit321G3.powertres.attempt.repository.AttemptDetailRepository;
 import com.csit321G3.powertres.attempt.repository.AttemptRepository;
 import com.csit321G3.powertres.question.entity.QuestionEntity;
 import com.csit321G3.powertres.question.repository.QuestionRepository;
+import com.csit321G3.powertres.role.user.UserProfile;
+import com.csit321G3.powertres.role.user.UserRepository;
 import com.csit321G3.powertres.role.user.student.entity.StudentEntity;
 import com.csit321G3.powertres.role.user.student.repository.StudentRepository;
 
@@ -28,22 +30,24 @@ public class AttemptService {
     private final AttemptDetailRepository details;
     private final QuestionRepository questions;
     private final StudentRepository students;
+    private final UserRepository users;
 
     public AttemptService(AttemptRepository attempts, AttemptDetailRepository details,
-                          QuestionRepository questions, StudentRepository students) {
+                          QuestionRepository questions, StudentRepository students, UserRepository users) {
         this.attempts = attempts;
         this.details = details;
         this.questions = questions;
         this.students = students;
+        this.users = users;
     }
 
     @Transactional
     public AttemptResponse submit(AttemptRequest req) {
-        if (req.getStudentId() == null || req.getSubject() == null) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "studentId and subject are required");
+        if (req.getSubject() == null || (req.getStudentId() == null && req.getUserId() == null)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
+                    "subject and either studentId or userId are required");
         }
-        StudentEntity student = students.findById(req.getStudentId())
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Student not found"));
+        StudentEntity student = findStudent(req);
         List<QuestionEntity> subjectQuestions = questions.findBySubject(req.getSubject());
         if (subjectQuestions.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No questions for this subject");
@@ -52,9 +56,9 @@ public class AttemptService {
 
         int correct = 0;
         boolean allAnswered = true;
-       
+        // topic -> {correct, total}
         Map<String, int[]> topicCounts = new LinkedHashMap<>();
-        
+        // (question, isCorrect) kept so details can be saved after the attempt has an id
         Map<QuestionEntity, Boolean> results = new LinkedHashMap<>();
 
         for (QuestionEntity q : subjectQuestions) {
@@ -89,6 +93,18 @@ public class AttemptService {
         return toResponse(attempt, byTopic);
     }
 
+    // The frontend knows the logged-in userId; Postman can send studentId directly.
+    private StudentEntity findStudent(AttemptRequest req) {
+        if (req.getStudentId() != null) {
+            return students.findById(req.getStudentId())
+                    .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Student not found"));
+        }
+        UserProfile user = users.findById(req.getUserId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
+        return students.findByUser(user)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "This user is not a student"));
+    }
+
     public List<AttemptResponse> list() {
         return attempts.findAll().stream().map(a -> toResponse(a, byTopicOf(a))).toList();
     }
@@ -113,7 +129,7 @@ public class AttemptService {
         attempts.deleteById(attemptId);
     }
 
-    
+    // Rebuilds the per-topic breakdown from the saved detail rows.
     private Map<String, TopicScore> byTopicOf(AttemptEntity attempt) {
         Map<String, int[]> counts = new LinkedHashMap<>();
         for (AttemptDetailEntity d : details.findByAttemptAttemptId(attempt.getAttemptId())) {

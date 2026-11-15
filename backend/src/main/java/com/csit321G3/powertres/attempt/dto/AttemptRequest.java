@@ -3,10 +3,13 @@ package com.csit321G3.powertres.attempt.dto;
 import java.util.Map;
 
 public class AttemptRequest {
-    private Long studentId;
+    private Long userId;      
+    private Long studentId;    
     private String subject;
-    private Map<Long, String> answers;   
+    private Map<Long, String> answers;  
 
+    public Long getUserId() { return userId; }
+    public void setUserId(Long userId) { this.userId = userId; }
     public Long getStudentId() { return studentId; }
     public void setStudentId(Long studentId) { this.studentId = studentId; }
     public String getSubject() { return subject; }
