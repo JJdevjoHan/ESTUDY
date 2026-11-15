@@ -36,7 +36,7 @@ public class AttemptEntity {
     private double score;          // percentage, 0 - 100
 
     @Column(nullable = false)
-    private String status;         // "Completed" or "Incomplete"
+    private String status;        
 
     private LocalDateTime dateTaken = LocalDateTime.now();
 
