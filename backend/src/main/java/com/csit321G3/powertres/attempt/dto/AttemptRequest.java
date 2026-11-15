@@ -5,7 +5,7 @@ import java.util.Map;
 public class AttemptRequest {
     private Long studentId;
     private String subject;
-    private Map<Long, String> answers;   // { questionId: chosenOption }
+    private Map<Long, String> answers;   
 
     public Long getStudentId() { return studentId; }
     public void setStudentId(Long studentId) { this.studentId = studentId; }
