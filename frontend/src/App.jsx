@@ -4,7 +4,6 @@ import DiagnosticTestPage from './features/diagnostic/pages/DiagnosticTestPage.j
 import LoginPage from './features/auth/AuthenticationPages/LoginPage.jsx';
 import RegisterPage from './features/auth/AuthenticationPages/RegisterPage.jsx';
 import LandingPage from './features/landing/pages/LandingPage.jsx';
-import PlaceholderPage from './pages/PlaceholderPage.jsx';
 import RequireDiagnostic, { RequireAuth, RequireRole } from './routes/RequireDiagnostic.jsx';
 import { ROUTES } from './routes/paths.js';
 import { ROLES } from './features/auth/constants/roles.js';
@@ -17,6 +16,8 @@ import StudentDashboardPage from './features/students/pages/StudentDashboardPage
 import ForgotPasswordPage from './features/auth/AuthenticationPages/ForgotPasswordPage.jsx';
 import ResetPasswordPage from './features/auth/AuthenticationPages/ResetPasswordPage.jsx';
 import DiagnosticResultsPage from './features/diagnostic/pages/DiagnosticResultsPage.jsx';
+import LogoutPage from './features/auth/AuthenticationPages/LogoutPage.jsx';
+import ProfilePage from './features/profile/pages/ProfilePage.jsx';
 
 
 function App() {
@@ -32,24 +33,13 @@ function App() {
           <Route path={ROUTES.RESET_PASSWORD} element={<ResetPasswordPage />} />
         </Route>
         
-          <Route
-            path={ROUTES.LOGOUT}
-            element={<PlaceholderPage title="You have logged out..." />}
-          />
-
-          <Route
-            path={ROUTES.PROFILE} element={<ProfilePage/>}
-          />
+          <Route path={ROUTES.LOGOUT} element={<LogoutPage />} />
 
         <Route element={<RequireAuth />}>
+          <Route path={ROUTES.PROFILE} element={<ProfilePage />} />
           <Route path={ROUTES.DIAGNOSTIC} element={<DiagnosticLandingPage />} />
           <Route path={ROUTES.DIAGNOSTIC_TEST} element={<DiagnosticTestPage />} />
           <Route path={ROUTES.DIAGNOSTIC_RESULTS} element={<DiagnosticResultsPage />} />
-        </Route>
-
-          {/*required if first time user*/}
-        <Route element={<RequireDiagnostic />}>
-          <Route path={ROUTES.DIAGNOSTIC} element={<DiagnosticLandingPage />}/>
         </Route>
 
         <Route element={<RequireRole role={ROLES.TEACHER} />}>
@@ -59,8 +49,11 @@ function App() {
           <Route path={TEACHER_ROUTES.REQUESTS} element={<RequestQueuePage />} />
         </Route>
 
+        {/* students must finish the diagnostic before the dashboard opens */}
         <Route element={<RequireRole role={ROLES.STUDENT} />}>
+          <Route element={<RequireDiagnostic />}>
             <Route path={ROUTES.DASHBOARD_STUDENT} element={<StudentDashboardPage />} />
+          </Route>
         </Route>
 
         <Route path="*" element={<Navigate to={ROUTES.HOME} replace />} />
