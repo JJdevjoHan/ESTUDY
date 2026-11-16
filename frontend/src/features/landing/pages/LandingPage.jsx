@@ -6,9 +6,8 @@ import {
 } from 'lucide-react';
 import { Link, Outlet } from 'react-router-dom';
 
-import estudyLogoColor from '../../../assets/images/estudy-logo.svg';
-import estudyLogoWhite from '../../../assets/images/estudy-logo-white.svg';
-//import studentsIllustration from '../../../assets/images/auth-students.png';
+import estudyLogo from '../../../assets/images/Logodrafttest.png';
+
 import { ROUTES, registerPath } from '../../../routes/paths.js';
 import { ROLES } from '../../auth/constants/roles.js';
 import styles from './LandingPage.module.css';
@@ -79,7 +78,7 @@ export default function LandingPage() {
         </div>
 
         <nav className={styles.nav} aria-label="Main">
-          <Link to={ROUTES.HOME} className={styles.logoLink} aria-label="EStudy home">
+                  <Link to={ROUTES.HOME} className={styles.logoLink} aria-label="EStudy home">
             <img src={estudyLogoWhite} alt="EStudy" className={styles.logo} />
           </Link>
 
@@ -126,9 +125,9 @@ export default function LandingPage() {
         
        
           <div className={styles.visual}>
-              <span className={styles.disc} aria-hidden="true" />
-             {/* <img src={studentsIllustration} alt="Students studying together" className={styles.students} /> */}
-            </div>
+                           <span className={styles.disc} aria-hidden="true" />
+              <img src={estudyLogo} alt="EStudy" className={styles.heroLogo} />
+              </div>
           </div>
        
 
@@ -187,7 +186,7 @@ export default function LandingPage() {
       </main>
 
       <footer className={styles.footer}>
-        <img src={estudyLogoColor} alt="EStudy" className={styles.footerLogo} />
+        <img src={estudyLogo} alt="EStudy" className={styles.footerLogo} />
         <p>&copy; 2026 EStudy. All rights reserved.</p>
       </footer>
 
