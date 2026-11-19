@@ -1,4 +1,5 @@
 import StudentLayout from '../../../components/layout/StudentLayout/StudentLayout.jsx';
+import useCurrentUser from '../../../hooks/useCurrentUser.js';
 import QuestionCard from '../components/QuestionCard/QuestionCard.jsx';
 import QuestionNavigator from '../components/QuestionNavigator/QuestionNavigator.jsx';
 import TestControls from '../components/TestControls/TestControls.jsx';
@@ -11,6 +12,8 @@ import styles from './DiagnosticTestPage.module.css';
 
 export default function DiagnosticTestPage() {
   const test = useDiagnosticTest();
+  const { user } = useCurrentUser();
+  const sidebarLocked = !user?.hasCompletedDiagnostic;
 
   const handleSubmit = () => {
     const unanswered = test.total - test.answeredCount;
@@ -24,7 +27,7 @@ export default function DiagnosticTestPage() {
 
   if (test.isLoading) {
     return (
-      <StudentLayout sidebarLocked>
+      <StudentLayout sidebarLocked={sidebarLocked}>
         <p role="status">Loading your test…</p>
       </StudentLayout>
     );
@@ -32,7 +35,7 @@ export default function DiagnosticTestPage() {
 
   if (test.loadError || !test.currentQuestion) {
     return (
-      <StudentLayout sidebarLocked>
+      <StudentLayout sidebarLocked={sidebarLocked}>
         <p role="alert" className={styles.error}>
           {test.loadError || 'No questions are available right now. Try again later.'}
         </p>
@@ -43,7 +46,7 @@ export default function DiagnosticTestPage() {
   const progressPercent = ((test.currentIndex + 1) / test.total) * 100;
 
   return (
-    <StudentLayout sidebarLocked>
+    <StudentLayout sidebarLocked={sidebarLocked}>
       <div className={styles.header}>
         <div className={styles.headerText}>
           <h1>Personalized Diagnostic Test</h1>

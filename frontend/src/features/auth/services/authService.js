@@ -1,16 +1,13 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-const USER_KEY = 'user'; 
+import { API_BASE_URL } from '../../../config/api.js';
 
-const wait = (milliseconds) =>
-  new Promise((resolve) => setTimeout(resolve, milliseconds));
+const USER_KEY = 'user';
 
 export function saveUser(user) {
   try {
     localStorage.setItem(USER_KEY, JSON.stringify(user));
   } catch {
-
+    // Storage may be unavailable in restricted browser contexts.
   }
-    
 }
 
 export function getCurrentUser() {
@@ -25,15 +22,13 @@ export function logout() {
   try {
     localStorage.removeItem(USER_KEY);
   } catch {
-    
+    // Storage may be unavailable in restricted browser contexts.
   }
 }
 
-
-async function post(path, body, mockData) {
+async function post(path, body) {
   if (!API_BASE_URL) {
-    await wait(700);
-    return mockData ?? { user: { role: body.role ?? 'student' } };
+    throw new Error('The backend is not connected. Set VITE_API_BASE_URL to your API URL.');
   }
 
   const response = await fetch(`${API_BASE_URL}${path}`, {
@@ -51,72 +46,23 @@ async function post(path, body, mockData) {
 
 export async function login({ email, password, rememberMe }) {
   const cleanEmail = email.trim();
-  const previous = getCurrentUser();
-  const saved = getMockAccounts().find(
-    (account) => account.email === cleanEmail.toLowerCase()
-  );
-
-  const data = await post(
-    '/auth/login',
-    { email: cleanEmail, password, rememberMe },
-    {
-      
-      user: {
-        role:
-          saved?.role ??
-          (cleanEmail.toLowerCase().includes('teacher') ? 'teacher' : 'student'),
-        fullName: saved?.fullName ?? 'Juan Dela Cruz',
-        email: cleanEmail,
-        studentNumber: saved?.schoolId ?? '12-3456-789',
-        program: 'BSIT',
-        year: 3,
-        hasCompletedDiagnostic: previous?.hasCompletedDiagnostic ?? false,
-      },
-    }
-  );
+  const data = await post('/auth/login', { email: cleanEmail, password, rememberMe });
+  if (!data.user?.userId) {
+    throw new Error('The backend login response did not include an account ID.');
+  }
 
   saveUser(data.user);
   return data;
 }
-const ACCOUNTS_KEY = 'mockAccounts'; 
-
-function getMockAccounts() {
-  try {
-    return JSON.parse(localStorage.getItem(ACCOUNTS_KEY)) ?? [];
-  } catch {
-    return [];
-  }
-}
-
-function saveMockAccount(account) {
-  try {
-    const others = getMockAccounts().filter((a) => a.email !== account.email);
-    localStorage.setItem(ACCOUNTS_KEY, JSON.stringify([...others, account]));
-  } catch {
-    
-  }
-}
 
 export async function register({ role, fullName, email, schoolId, password }) {
-  const data = await post('/auth/register', {
+  return post('/auth/register', {
     role,
     fullName: fullName.trim(),
     email: email.trim(),
     schoolId: schoolId.trim(),
     password,
   });
-
-  
-  if (!API_BASE_URL) {
-    saveMockAccount({
-      role,
-      fullName: fullName.trim(),
-      email: email.trim().toLowerCase(),
-      schoolId: schoolId.trim(),
-    });
-  }
-
-  return data;
 }
 
 export const verifyRecovery = ({ email, schoolId, fullName }) =>
