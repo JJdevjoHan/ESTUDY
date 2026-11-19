@@ -1,5 +1,11 @@
 # React + Vite
 
+## Backend connection
+
+In development, the frontend connects to `http://localhost:8080/api` by default. Start the
+Spring Boot backend and its configured MySQL database before logging in. To use another API
+address, set `VITE_API_BASE_URL` (include the `/api` prefix) in a frontend `.env` file.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
