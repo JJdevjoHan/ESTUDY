@@ -1,25 +1,27 @@
 import { ChartNoAxesColumnIncreasing } from 'lucide-react';
-import { subjectPerformance } from '../data/studentDashboardData.js';
+import { formatScore } from '../data/studentDashboardData.js';
 import styles from './DashboardWidgets.module.css';
 
-export default function PerformanceSummary() {
+export default function PerformanceSummary({ performance }) {
   return (
     <section className={styles.panel} aria-labelledby="performance-heading">
       <div className={styles.panelHeading}>
         <div>
           <h2 id="performance-heading">Performance</h2>
-          <p>Your strongest subjects this week</p>
+          <p>Average scores by subject</p>
         </div>
         <span className={`${styles.panelIcon} ${styles.panelIconBlue}`} aria-hidden="true">
           <ChartNoAxesColumnIncreasing size={17} />
         </span>
       </div>
       <ul className={styles.performanceList}>
-        {subjectPerformance.map((item) => (
+        {performance.length === 0 ? (
+          <li className={styles.emptyState}>No subject results yet.</li>
+        ) : performance.map((item) => (
           <li className={styles.performanceItem} key={item.subject}>
             <div className={styles.performanceLabel}>
               <span>{item.subject}</span>
-              <span>{item.score}%</span>
+              <span>{formatScore(item.score)}%</span>
             </div>
             <div
               className={styles.progressTrack}
