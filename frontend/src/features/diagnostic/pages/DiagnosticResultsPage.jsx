@@ -1,5 +1,6 @@
 import { Link, Navigate, useLocation } from 'react-router-dom';
 import StudentLayout from '../../../components/layout/StudentLayout/StudentLayout.jsx';
+import useCurrentUser from '../../../hooks/useCurrentUser.js';
 import { ROUTES } from '../../../routes/paths.js';
 import styles from './DiagnosticResultsPage.module.css';
 
@@ -7,6 +8,7 @@ import styles from './DiagnosticResultsPage.module.css';
 const percent = (correct, total) => (total ? Math.round((correct / total) * 10000) / 100 : 0);
 
 export default function DiagnosticResultsPage() {
+  const { user } = useCurrentUser();
   // The test page passes the result here when it navigates.
   const { state } = useLocation();
   const result = state?.result;
@@ -18,7 +20,7 @@ export default function DiagnosticResultsPage() {
   const topics = Object.entries(byTopic);
 
   return (
-    <StudentLayout>
+    <StudentLayout sidebarLocked={!user?.hasCompletedDiagnostic}>
       <section className={styles.scoreCard}>
         <div>
           <p className={styles.tag}>Diagnostic results</p>
