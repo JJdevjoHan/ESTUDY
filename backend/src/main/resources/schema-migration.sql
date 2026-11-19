@@ -1,0 +1,3 @@
+ALTER TABLE student
+    MODIFY COLUMN section VARCHAR(255) NULL,
+    MODIFY COLUMN year_level INT NULL;
