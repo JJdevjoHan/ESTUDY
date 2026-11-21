@@ -11,10 +11,9 @@ import { useRechecks } from '../store/recheckStore.js';
 import { useClassData } from '../store/classStore.js';
 import { TEACHER_ROUTES } from '../routes/teacherPaths.js';
 import useTeacherData from '../hooks/useTeacherData.js';
-
 import styles from './TeacherDashboardPage.module.css';
 
-const { SUBJECT_NAMES, earlyWarningFlags, performanceGroups, recentUpdates } = useTeacherData();
+
 
 function getGreeting() {
   const hour = new Date().getHours();
@@ -30,6 +29,7 @@ export default function TeacherDashboardPage() {
   const firstName = (user?.fullName || user?.name || 'Teacher').split(' ')[0];
   const { subjects, students } = useClassData();
   const rechecks = useRechecks();
+  const { SUBJECT_NAMES, earlyWarningFlags, performanceGroups, recentUpdates } = useTeacherData();
   const openRechecks = rechecks.filter((r) => r.status === 'in-review').length;
 
   const stats = [
