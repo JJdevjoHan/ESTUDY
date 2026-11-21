@@ -1,0 +1,99 @@
+.scoreCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 32px;
+  border-radius: 8px;
+  background: #781824;
+  color: #ffffff;
+}
+
+.tag {
+  margin: 0 0 8px;
+  color: #ffd27a;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.scoreCard h1 {
+  margin: 0 0 8px;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.scoreCard p {
+  margin: 0;
+}
+
+.circle {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #f9c97c;
+  color: #8f1d2c;
+}
+
+.circleNumber {
+  font-size: 2.4rem;
+  font-weight: 800;
+}
+
+.circleLabel {
+  font-size: 0.8rem;
+}
+
+.topicCard {
+  margin-top: 20px;
+  padding: 24px 28px;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.topicCard h2 {
+  margin: 0 0 16px;
+}
+
+.topicList {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.topicRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+  font-size: 0.92rem;
+}
+
+.bar {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #eee3e4;
+}
+
+.barFill {
+  height: 100%;
+  background: #781824;
+}
+
+.continueLink {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 22px;
+  border-radius: 8px;
+  background: #781824;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+}

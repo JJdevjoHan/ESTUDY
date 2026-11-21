@@ -29,10 +29,10 @@ public class StudentEntity {
     @Column(nullable = false)
     private String lastName;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Integer yearLevel;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String section;
 
     protected StudentEntity() {

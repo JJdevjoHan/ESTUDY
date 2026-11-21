@@ -187,8 +187,7 @@
   color: #e74b3c;
 }
 
-.performanceList,
-.upcomingList {
+.performanceList {
   display: flex;
   margin: 0;
   padding: 0;
@@ -198,6 +197,11 @@
 .performanceList {
   flex-direction: column;
   gap: 9px;
+}
+
+.emptyState {
+  color: #748196;
+  font-size: 0.7rem;
 }
 
 .performanceLabel {
@@ -234,30 +238,27 @@
   background: #2d66b3;
 }
 
-.upcomingList {
-  gap: 7px;
+.studentDetails {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
 }
 
-.activityCard {
-  display: flex;
-  flex: 1 1 0;
+.studentDetail {
   min-width: 0;
-  flex-direction: column;
-  gap: 3px;
-  padding: 9px 8px;
-  border-radius: 7px;
-  background: #f7f9fb;
 }
 
-.activityDay {
+.studentDetailLabel {
   color: #64748b;
   font-size: 0.6rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
-.activityTitle {
+.studentDetailValue {
   overflow: hidden;
+  margin-top: 3px;
   color: #24354d;
   font-size: 0.69rem;
   font-weight: 600;
@@ -265,13 +266,8 @@
   white-space: nowrap;
 }
 
-.activityTime {
-  color: #748196;
-  font-size: 0.63rem;
-}
-
 @media (max-width: 650px) {
-  .upcomingList {
-    flex-direction: column;
+  .studentDetails {
+    grid-template-columns: 1fr;
   }
 }

@@ -1,44 +1,65 @@
-export const dashboardStats = [
-  {
-    label: 'Overall score',
-    value: '84%',
-    detail: '+6 points since last week',
-    icon: 'award',
-    tone: 'red',
-  },
-  {
-    label: 'Course progress',
-    value: '68%',
-    detail: '12 of 18 modules completed',
-    icon: 'book',
-    tone: 'blue',
-  },
-  {
-    label: 'Practice streak',
-    value: '5 days',
-    detail: 'Keep practicing to unlock badges',
-    icon: 'streak',
-    tone: 'darkRed',
-  },
-];
+const PERFORMANCE_TONES = ['red', 'orange', 'blue'];
 
-export const recentResults = [
-  { subject: 'Physics Quiz 3', type: 'Quiz', score: 92, status: 'Passed', due: 'Today' },
-  { subject: 'Algebra Practice', type: 'Practice', score: 78, status: 'Review', due: 'Yesterday' },
-  { subject: 'Biology Lab Report', type: 'Assignment', score: 88, status: 'Passed', due: '2 days ago' },
-  { subject: 'Geometry Test', type: 'Test', score: 95, status: 'Passed', due: '3 days ago' },
-  { subject: 'Chemistry Quiz 2', type: 'Quiz', score: 81, status: 'Passed', due: '4 days ago' },
-  { subject: 'Statistics Practice', type: 'Practice', score: 74, status: 'Review', due: '5 days ago' },
-];
+export function getDashboardStats(student, attempts) {
+  const averageScore =
+    attempts.length > 0
+      ? attempts.reduce((total, attempt) => total + attempt.score, 0) / attempts.length
+      : null;
 
-export const subjectPerformance = [
-  { subject: 'Physics', score: 92, tone: 'red' },
-  { subject: 'Algebra', score: 84, tone: 'orange' },
-  { subject: 'Biology', score: 78, tone: 'blue' },
-];
+  return [
+    {
+      label: 'Average score',
+      value: averageScore === null ? '—' : `${formatScore(averageScore)}%`,
+      detail:
+        attempts.length === 0
+          ? 'No assessments completed yet'
+          : `Across ${attempts.length} ${attempts.length === 1 ? 'assessment' : 'assessments'}`,
+      icon: 'award',
+      tone: 'red',
+    },
+    {
+      label: 'Assessments taken',
+      value: String(attempts.length),
+      detail: `${attempts.filter((attempt) => attempt.status === 'Completed').length} completed`,
+      icon: 'streak',
+      tone: 'darkRed',
+    },
+    {
+      label: 'Year level',
+      value: student.yearLevel ? `Year ${student.yearLevel}` : '—',
+      detail: student.section ? `Section ${student.section}` : 'Section not set',
+      icon: 'book',
+      tone: 'blue',
+    },
+  ];
+}
 
-export const upcomingActivities = [
-  { day: 'Today', title: 'Physics Lab', time: '2:00 PM' },
-  { day: 'Tomorrow', title: 'Algebra Quiz', time: '9:30 AM' },
-  { day: 'Fri', title: 'Biology Project', time: '11:00 AM' },
-];
+export function getRecentResults(attempts) {
+  return [...attempts].sort(
+    (first, second) => Date.parse(second.dateTaken) - Date.parse(first.dateTaken)
+  );
+}
+
+export function getSubjectPerformance(attempts) {
+  const bySubject = new Map();
+  attempts.forEach((attempt) => {
+    const scores = bySubject.get(attempt.subject) ?? [];
+    scores.push(attempt.score);
+    bySubject.set(attempt.subject, scores);
+  });
+
+  return [...bySubject.entries()]
+    .map(([subject, scores]) => ({
+      subject,
+      score: scores.reduce((total, score) => total + score, 0) / scores.length,
+    }))
+    .sort((first, second) => second.score - first.score)
+    .map((item, index) => ({
+      ...item,
+      tone: PERFORMANCE_TONES[index % PERFORMANCE_TONES.length],
+    }));
+}
+
+export function formatScore(score) {
+  return new Intl.NumberFormat(undefined, { maximumFractionDigits: 1 }).format(score);
+}

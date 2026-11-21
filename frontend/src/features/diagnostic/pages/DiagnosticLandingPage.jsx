@@ -9,14 +9,14 @@ import styles from './DiagnosticLandingPage.module.css';
 
 export default function DiagnosticLandingPage() {
   const navigate = useNavigate();
-  const { firstName } = useCurrentUser();
+  const { firstName, user } = useCurrentUser();
 
   const handleStartTest = () => {
     navigate(ROUTES.DIAGNOSTIC_TEST);
   };
 
   return (
-    <StudentLayout sidebarLocked>
+    <StudentLayout sidebarLocked={!user?.hasCompletedDiagnostic}>
       <section className={styles.heroCard}>
         <div className={styles.heroText}>
           <p className={styles.heroTag}>Welcome to EStudy</p>
