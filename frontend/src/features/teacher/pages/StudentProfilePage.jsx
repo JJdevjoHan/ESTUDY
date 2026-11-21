@@ -8,6 +8,7 @@ import { getAverage, getStatus, STATUS_LABELS } from '../utils/studentUtils.js';
 import { TEACHER_ROUTES } from '../routes/teacherPaths.js';
 import widgets from '../components/Widgets.module.css';
 import styles from './StudentProfilePage.module.css';
+import useTeacherData from '../hooks/useTeacherData.js';
 
 const BADGE = {
   'on-track': widgets.good,
@@ -30,6 +31,8 @@ export default function StudentProfilePage() {
       Back to students
     </button>
   );
+
+const { earlyWarningFlags } = useTeacherData();
 
   if (!student) {
     return (
