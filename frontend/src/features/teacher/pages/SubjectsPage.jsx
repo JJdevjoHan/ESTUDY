@@ -1,10 +1,9 @@
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, Plus, Upload, Trash2, UserPlus } from 'lucide-react';
+import { Search, Plus, Trash2, UserPlus } from 'lucide-react';
 import TeacherLayout from '../components/TeacherLayout.jsx';
 import AddSubjectForm from '../components/AddSubjectForm.jsx';
 import AddStudentForm from '../components/AddStudentForm.jsx';
-import UploadStudents from '../components/UploadStudents.jsx';
 import { useClassData, deleteSubject, dropStudent } from '../store/classStore.js';
 import { getStatus, STATUS_LABELS } from '../utils/studentUtils.js';
 import { studentProfilePath } from '../routes/teacherPaths.js';
@@ -84,25 +83,12 @@ export default function SubjectsPage() {
   return (
     <TeacherLayout activeKey="subjects" title="SUBJECTS (STUDENTS)">
       <div className={tools.actionBar}>
-        <button
-          type="button"
-          className={tools.secondary}
-          disabled={!activeSubject}
-          onClick={() => togglePanel('upload')}
-        >
-          <Upload size={16} aria-hidden="true" />
-          Upload Excel
-        </button>
+        
         <button type="button" className={tools.primary} onClick={() => togglePanel('subject')}>
           <Plus size={16} aria-hidden="true" />
           Add Subject
         </button>
       </div>
-
-      {openPanel === 'subject' && <AddSubjectForm onAdded={handleSubjectAdded} onClose={closePanel} />}
-      {openPanel === 'upload' && activeSubject && (
-        <UploadStudents subject={activeSubject} onClose={closePanel} />
-      )}
 
       {!activeSubject ? (
         <section className={widgets.card}>
@@ -187,7 +173,7 @@ export default function SubjectsPage() {
             {rows.length === 0 ? (
               <p className={styles.empty}>
                 {activeSubject.count === 0
-                  ? 'No students in this subject yet. Use Add Student or Upload Excel.'
+                  ? 'No students in this subject yet. Use Add Student.'
                   : 'No students match your search.'}
               </p>
             ) : (
