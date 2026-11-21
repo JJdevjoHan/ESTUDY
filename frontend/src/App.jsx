@@ -11,7 +11,6 @@ import TeacherDashboardPage from './features/teacher/pages/TeacherDashboardPage.
 import SubjectsPage from './features/teacher/pages/SubjectsPage.jsx';
 import StudentProfilePage from './features/teacher/pages/StudentProfilePage.jsx';
 import { TEACHER_ROUTES } from './features/teacher/routes/teacherPaths.js';
-import RequestQueuePage from './features/teacher/pages/RequestQueuePage.jsx';
 import StudentDashboardPage from './features/students/pages/StudentDashboardPage.jsx';
 import ForgotPasswordPage from './features/auth/AuthenticationPages/ForgotPasswordPage.jsx';
 import ResetPasswordPage from './features/auth/AuthenticationPages/ResetPasswordPage.jsx';

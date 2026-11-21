@@ -52,9 +52,9 @@ export default function TeacherDashboardPage() {
             {plural(earlyWarningFlags.length, 'early warning flag')} that need your attention.
           </p>
           <div className={styles.heroActions}>
-            <Link to={TEACHER_ROUTES.REQUESTS} className={styles.heroPrimary}>
-              Review requests
-            </Link>
+            <a href="#recheck-queue" className={styles.heroPrimary}>
+            Review requests
+            </a>
             <Link to={TEACHER_ROUTES.SUBJECTS} className={styles.heroGhost}>
               View students
             </Link>

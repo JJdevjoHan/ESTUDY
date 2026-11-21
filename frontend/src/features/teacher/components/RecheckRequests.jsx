@@ -1,23 +1,31 @@
-import { useNavigate } from 'react-router-dom';
-import { TEACHER_ROUTES } from '../routes/teacherPaths.js';
+import { updateRecheck } from '../store/recheckStore.js';
 import styles from './DashboardWidgets.module.css';
 
 export default function RecheckRequests({ requests }) {
-  const navigate = useNavigate();
   const open = requests.filter((r) => r.status === 'in-review').length;
 
+  const resolve = (id, outcome) => {
+    updateRecheck(id, {
+      status: 'resolved',
+      outcome,
+      resolvedOn: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+    });
+  };
+
+  const reopen = (id) => {
+    updateRecheck(id, { status: 'in-review', outcome: null, note: '', resolvedOn: null });
+  };
+
   return (
-    <section className={styles.panel}>
+    <section id="recheck-queue" className={styles.panel}>
       <div className={styles.panelHead}>
         <h2 className={styles.panelTitle}>Re-check queue</h2>
-        <button
-          type="button"
-          className={styles.panelLink}
-          onClick={() => navigate(TEACHER_ROUTES.REQUESTS)}
-        >
-          Open queue ({open})
-        </button>
+        <span className={styles.pill} data-status="in-review">
+          {open} pending
+        </span>
       </div>
+
+      {requests.length === 0 && <p className={styles.itemText}>No re-check requests.</p>}
 
       <ul className={styles.list}>
         {requests.map((req) => (
@@ -37,13 +45,20 @@ export default function RecheckRequests({ requests }) {
               <span className={styles.pill} data-status={req.status}>
                 {req.status === 'resolved' ? 'Resolved' : 'In Review'}
               </span>
-              <button
-                type="button"
-                className={styles.ghostBtn}
-                onClick={() => navigate(TEACHER_ROUTES.REQUESTS)}
-              >
-                {req.status === 'resolved' ? 'Open' : 'Review'}
-              </button>
+              {req.status === 'resolved' ? (
+                <button type="button" className={styles.ghostBtn} onClick={() => reopen(req.id)}>
+                  Reopen
+                </button>
+              ) : (
+                <>
+                  <button type="button" className={styles.ghostBtn} onClick={() => resolve(req.id, 'approved')}>
+                    Approve
+                  </button>
+                  <button type="button" className={styles.ghostBtn} onClick={() => resolve(req.id, 'declined')}>
+                    Decline
+                  </button>
+                </>
+              )}
             </div>
           </li>
         ))}
