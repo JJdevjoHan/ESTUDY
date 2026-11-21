@@ -1,5 +1,5 @@
 import { useSyncExternalStore } from 'react';
-import { recheckRequests } from '../data/teacherMockData.js';
+import { fetchTeacherData } from '../services/teacherApi.js';
 
 // Demo only. Saves the teacher's changes in this browser until the backend exists.
 const STORAGE_KEY = 'teacherRecheckUpdates';
@@ -13,12 +13,22 @@ function loadUpdates() {
   }
 }
 
+let requests = [];
+
 function buildList(updates) {
-  return recheckRequests.map((request) => ({ ...request, ...updates[request.id] }));
+  return requests.map((request) => ({ ...request, ...updates[request.id] }));
 }
 
 let updates = loadUpdates();
 let snapshot = buildList(updates);
+
+fetchTeacherData()
+  .then((data) => {
+    requests = data.recheckRequests;
+    snapshot = buildList(updates);
+    listeners.forEach((listener) => listener());
+  })
+  .catch(() => {});
 
 function subscribe(listener) {
   listeners.add(listener);

@@ -1,8 +1,5 @@
 import { useSyncExternalStore } from 'react';
-import {
-  subjects as sampleSubjects,
-  students as sampleStudents,
-} from '../data/teacherMockData.js';
+import { fetchTeacherData } from '../services/teacherApi.js';
 
 // Demo only. Keeps the teacher's subjects and students in this browser
 // until the backend is connected.
@@ -21,7 +18,30 @@ function loadState() {
   return { subjects: sampleSubjects, students: sampleStudents };
 }
 
-let state = loadState();
+function loadSaved() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    if (Array.isArray(saved?.subjects) && Array.isArray(saved?.students)) {
+      return saved;
+    }
+  } catch {
+    // Nothing saved yet or the saved text is broken.
+  }
+  return null;
+}
+
+const saved = loadSaved();
+let state = saved ?? { subjects: [], students: [] };
+
+// No saved changes yet, so load the starting data with fetch.
+if (!saved) {
+  fetchTeacherData()
+    .then((data) => {
+      state = { subjects: data.subjects, students: data.students };
+      listeners.forEach((listener) => listener());
+    })
+    .catch(() => {});
+}
 
 function setState(next) {
   state = next;
