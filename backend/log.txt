@@ -1,0 +1,142 @@
+[INFO] Scanning for projects...
+[INFO] Loaded 24565 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] 
+[INFO] -------------------< com.csit321G3.powertres:Estudy >-------------------
+[INFO] Building Estudy 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Loaded 64 auto-discovered prefixes for remote repository apache.snapshots (prefixes-apache.snapshots.txt)
+[INFO] 
+[INFO] >>> spring-boot:3.2.5:run (default-cli) > test-compile @ Estudy >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ Estudy ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ Estudy ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ Estudy ---
+[INFO] skip non existing resourceDirectory C:\Users\Lenovo\ESTUDY\backend\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ Estudy ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] <<< spring-boot:3.2.5:run (default-cli) < test-compile @ Estudy <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.2.5:run (default-cli) @ Estudy ---
+[INFO] Loaded 50 auto-discovered prefixes for remote repository ow2-snapshot (prefixes-ow2-snapshot.txt)
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-11-21T13:31:20.957+08:00  INFO 13864 --- [  restartedMain] c.csit321G3.powertres.EstudyApplication  : Starting EstudyApplication using Java 17.0.16 with PID 13864 (C:\Users\Lenovo\ESTUDY\backend\target\classes started by Lenovo in C:\Users\Lenovo\ESTUDY\backend)
+2026-11-21T13:31:20.962+08:00  INFO 13864 --- [  restartedMain] c.csit321G3.powertres.EstudyApplication  : No active profile set, falling back to 1 default profile: "default"
+2026-11-21T13:31:21.088+08:00  INFO 13864 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-11-21T13:31:21.089+08:00  INFO 13864 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-11-21T13:31:23.161+08:00  INFO 13864 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-21T13:31:23.311+08:00  INFO 13864 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 135 ms. Found 9 JPA repository interfaces.
+2026-11-21T13:31:24.963+08:00  INFO 13864 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-11-21T13:31:24.985+08:00  INFO 13864 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-21T13:31:24.986+08:00  INFO 13864 --- [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-11-21T13:31:25.088+08:00  INFO 13864 --- [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-11-21T13:31:25.090+08:00  INFO 13864 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3999 ms
+2026-11-21T13:31:25.595+08:00  INFO 13864 --- [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-11-21T13:31:25.737+08:00  INFO 13864 --- [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-11-21T13:31:25.804+08:00  INFO 13864 --- [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-11-21T13:31:26.266+08:00  INFO 13864 --- [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-21T13:31:26.334+08:00  INFO 13864 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-21T13:31:26.611+08:00  INFO 13864 --- [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6b5b2d91
+2026-11-21T13:31:26.614+08:00  INFO 13864 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-21T13:31:26.686+08:00  WARN 13864 --- [  restartedMain] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-11-21T13:31:26.694+08:00  WARN 13864 --- [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-11-21T13:31:28.677+08:00  INFO 13864 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: create table administrator (adminid integer not null auto_increment, accesslevel varchar(255), fname varchar(255), lname varchar(255), user_id bigint not null, primary key (adminid)) engine=InnoDB
+Hibernate: create table assessment_attempt (attempt_id bigint not null auto_increment, correct integer not null, date_taken datetime(6), score float(53) not null, status varchar(255) not null, subject varchar(255) not null, total integer not null, student_id bigint not null, primary key (attempt_id)) engine=InnoDB
+Hibernate: create table assessment_detail (detail_id bigint not null auto_increment, is_correct bit not null, question_id bigint, topic varchar(255), attempt_id bigint not null, primary key (detail_id)) engine=InnoDB
+Hibernate: create table password_reset_tokens (id bigint not null auto_increment, expires_at datetime(6) not null, token varchar(255) not null, used bit not null, user_userid bigint not null, primary key (id)) engine=InnoDB
+Hibernate: create table question (question_id bigint not null auto_increment, correct_option varchar(255) not null, optiona varchar(255), optionb varchar(255), optionc varchar(255), optiond varchar(255), subject varchar(255) not null, text varchar(1000) not null, topic varchar(255) not null, primary key (question_id)) engine=InnoDB
+Hibernate: create table roles (role_id bigint not null auto_increment, role_name varchar(255) not null, primary key (role_id)) engine=InnoDB
+Hibernate: create table student (student_id bigint not null auto_increment, first_name varchar(255) not null, last_name varchar(255) not null, section varchar(255), year_level integer, user_id bigint not null, primary key (student_id)) engine=InnoDB
+Hibernate: create table teacher (teacher_id bigint not null auto_increment, department varchar(255), first_name varchar(255), last_name varchar(255), user_id bigint not null, primary key (teacher_id)) engine=InnoDB
+Hibernate: create table user_profile (userid bigint not null auto_increment, created_at datetime(6), email varchar(255), password varchar(255), username varchar(255) not null, role_id bigint, primary key (userid)) engine=InnoDB
+Hibernate: alter table administrator drop index UK_jf8hwde5kvshk44s9pllcqid9
+Hibernate: alter table administrator add constraint UK_jf8hwde5kvshk44s9pllcqid9 unique (user_id)
+Hibernate: alter table password_reset_tokens drop index UK_71lqwbwtklmljk3qlsugr1mig
+Hibernate: alter table password_reset_tokens add constraint UK_71lqwbwtklmljk3qlsugr1mig unique (token)
+Hibernate: alter table roles drop index UK_716hgxp60ym1lifrdgp67xt5k
+Hibernate: alter table roles add constraint UK_716hgxp60ym1lifrdgp67xt5k unique (role_name)
+Hibernate: alter table student drop index UK_bkix9btnoi1n917ll7bplkvg5
+Hibernate: alter table student add constraint UK_bkix9btnoi1n917ll7bplkvg5 unique (user_id)
+Hibernate: alter table teacher drop index UK_i5wqs2ds2vpmfpbcdxi9m2jvr
+Hibernate: alter table teacher add constraint UK_i5wqs2ds2vpmfpbcdxi9m2jvr unique (user_id)
+Hibernate: alter table user_profile drop index UK_tcks72p02h4dp13cbhxne17ad
+Hibernate: alter table user_profile add constraint UK_tcks72p02h4dp13cbhxne17ad unique (email)
+Hibernate: alter table user_profile drop index UK_9551piq2wp9kh4kket0wr65vt
+Hibernate: alter table user_profile add constraint UK_9551piq2wp9kh4kket0wr65vt unique (username)
+Hibernate: alter table administrator add constraint FKstnqf32xpogp2cmfo05i93l3b foreign key (user_id) references user_profile (userid)
+Hibernate: alter table assessment_attempt add constraint FKo8cw6bd5ftnaw0q6q8n5vfi76 foreign key (student_id) references student (student_id)
+Hibernate: alter table assessment_detail add constraint FKk9w61mlfcbs0q8cj5gvcgpf7c foreign key (attempt_id) references assessment_attempt (attempt_id)
+Hibernate: alter table password_reset_tokens add constraint FKilmsuvvqm5mk87s2eaocm7mdn foreign key (user_userid) references user_profile (userid)
+Hibernate: alter table student add constraint FKdbvby03ervs2f5ymvsrv0rpy foreign key (user_id) references user_profile (userid)
+Hibernate: alter table teacher add constraint FKk7j33uq4i8dbcd3uw4wps3gsq foreign key (user_id) references user_profile (userid)
+Hibernate: alter table user_profile add constraint FKn8h1al4pjbv8sms655ts6n49s foreign key (role_id) references roles (role_id)
+2026-11-21T13:31:29.360+08:00  INFO 13864 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-21T13:31:30.388+08:00  WARN 13864 --- [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-21T13:31:31.590+08:00  INFO 13864 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-11-21T13:31:31.633+08:00  INFO 13864 --- [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-11-21T13:31:31.807+08:00  INFO 13864 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-11-21T13:31:31.881+08:00  INFO 13864 --- [  restartedMain] c.csit321G3.powertres.EstudyApplication  : Started EstudyApplication in 11.617 seconds (process running for 12.733)
+Hibernate: select re1_0.role_id,re1_0.role_name from roles re1_0 where re1_0.role_name=?
+Hibernate: insert into roles (role_name) values (?)
+Hibernate: select re1_0.role_id,re1_0.role_name from roles re1_0 where re1_0.role_name=?
+Hibernate: insert into roles (role_name) values (?)
+Hibernate: select re1_0.role_id,re1_0.role_name from roles re1_0 where re1_0.role_name=?
+Hibernate: insert into roles (role_name) values (?)
+Hibernate: select count(*) from question qe1_0
+Hibernate: insert into question (correct_option,optiona,optionb,optionc,optiond,subject,text,topic) values (?,?,?,?,?,?,?,?)
+Hibernate: insert into question (correct_option,optiona,optionb,optionc,optiond,subject,text,topic) values (?,?,?,?,?,?,?,?)
+Hibernate: insert into question (correct_option,optiona,optionb,optionc,optiond,subject,text,topic) values (?,?,?,?,?,?,?,?)
+Hibernate: insert into question (correct_option,optiona,optionb,optionc,optiond,subject,text,topic) values (?,?,?,?,?,?,?,?)
+Hibernate: insert into question (correct_option,optiona,optionb,optionc,optiond,subject,text,topic) values (?,?,?,?,?,?,?,?)
+Hibernate: insert into question (correct_option,optiona,optionb,optionc,optiond,subject,text,topic) values (?,?,?,?,?,?,?,?)
+Hibernate: insert into question (correct_option,optiona,optionb,optionc,optiond,subject,text,topic) values (?,?,?,?,?,?,?,?)
+Hibernate: insert into question (correct_option,optiona,optionb,optionc,optiond,subject,text,topic) values (?,?,?,?,?,?,?,?)
+Hibernate: insert into question (correct_option,optiona,optionb,optionc,optiond,subject,text,topic) values (?,?,?,?,?,?,?,?)
+Hibernate: insert into question (correct_option,optiona,optionb,optionc,optiond,subject,text,topic) values (?,?,?,?,?,?,?,?)
+2026-11-21T13:33:47.008+08:00  INFO 13864 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-21T13:33:47.009+08:00  INFO 13864 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-21T13:33:47.011+08:00  INFO 13864 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+Hibernate: select up1_0.userid,up1_0.created_at,up1_0.email,up1_0.password,up1_0.role_id,up1_0.username from user_profile up1_0 where up1_0.email=?
+2026-11-21T13:33:47.299+08:00  WARN 13864 --- [nio-8080-exec-2] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [org.springframework.web.server.ResponseStatusException: 401 UNAUTHORIZED "Invalid email or password"]
+Hibernate: select up1_0.userid from user_profile up1_0 where up1_0.email=? limit ?
+Hibernate: select up1_0.userid from user_profile up1_0 where up1_0.username=? limit ?
+Hibernate: select re1_0.role_id,re1_0.role_name from roles re1_0 where re1_0.role_name=?
+Hibernate: insert into user_profile (created_at,email,password,role_id,username) values (?,?,?,?,?)
+Hibernate: insert into teacher (department,first_name,last_name,user_id) values (?,?,?,?)
+Hibernate: select te1_0.teacher_id,te1_0.department,te1_0.first_name,te1_0.last_name,te1_0.user_id from teacher te1_0 where te1_0.user_id=?
+Hibernate: select up1_0.userid,up1_0.created_at,up1_0.email,up1_0.password,up1_0.role_id,up1_0.username from user_profile up1_0 where up1_0.email=?
+Hibernate: select re1_0.role_id,re1_0.role_name from roles re1_0 where re1_0.role_id=?
+2026-11-21T13:37:17.670+08:00  WARN 13864 --- [nio-8080-exec-6] .w.s.m.a.ResponseStatusExceptionResolver : Resolved [org.springframework.web.server.ResponseStatusException: 401 UNAUTHORIZED "Invalid email or password"]
+Hibernate: select up1_0.userid,up1_0.created_at,up1_0.email,up1_0.password,up1_0.role_id,up1_0.username from user_profile up1_0 where up1_0.email=?
+Hibernate: select re1_0.role_id,re1_0.role_name from roles re1_0 where re1_0.role_id=?
+Hibernate: select te1_0.teacher_id,te1_0.department,te1_0.first_name,te1_0.last_name,te1_0.user_id from teacher te1_0 where te1_0.user_id=?
+Hibernate: select up1_0.userid,up1_0.created_at,up1_0.email,up1_0.password,r1_0.role_id,r1_0.role_name,up1_0.username from user_profile up1_0 left join roles r1_0 on r1_0.role_id=up1_0.role_id where up1_0.userid=?
+Hibernate: select te1_0.teacher_id,te1_0.department,te1_0.first_name,te1_0.last_name,te1_0.user_id from teacher te1_0 where te1_0.user_id=?
+Hibernate: select up1_0.userid,up1_0.created_at,up1_0.email,up1_0.password,r1_0.role_id,r1_0.role_name,up1_0.username from user_profile up1_0 left join roles r1_0 on r1_0.role_id=up1_0.role_id where up1_0.userid=?
+Hibernate: select te1_0.teacher_id,te1_0.department,te1_0.first_name,te1_0.last_name,te1_0.user_id from teacher te1_0 where te1_0.user_id=?
+Hibernate: select up1_0.userid,up1_0.created_at,up1_0.email,up1_0.password,r1_0.role_id,r1_0.role_name,up1_0.username from user_profile up1_0 left join roles r1_0 on r1_0.role_id=up1_0.role_id where up1_0.userid=?
+Hibernate: select te1_0.teacher_id,te1_0.department,te1_0.first_name,te1_0.last_name,te1_0.user_id from teacher te1_0 where te1_0.user_id=?
+Hibernate: select up1_0.userid,up1_0.created_at,up1_0.email,up1_0.password,r1_0.role_id,r1_0.role_name,up1_0.username from user_profile up1_0 left join roles r1_0 on r1_0.role_id=up1_0.role_id where up1_0.userid=?
+Hibernate: select te1_0.teacher_id,te1_0.department,te1_0.first_name,te1_0.last_name,te1_0.user_id from teacher te1_0 where te1_0.user_id=?
+Hibernate: select up1_0.userid,up1_0.created_at,up1_0.email,up1_0.password,r1_0.role_id,r1_0.role_name,up1_0.username from user_profile up1_0 left join roles r1_0 on r1_0.role_id=up1_0.role_id where up1_0.userid=?
+Hibernate: select te1_0.teacher_id,te1_0.department,te1_0.first_name,te1_0.last_name,te1_0.user_id from teacher te1_0 where te1_0.user_id=?
+Hibernate: select up1_0.userid,up1_0.created_at,up1_0.email,up1_0.password,r1_0.role_id,r1_0.role_name,up1_0.username from user_profile up1_0 left join roles r1_0 on r1_0.role_id=up1_0.role_id where up1_0.userid=?
+Hibernate: select te1_0.teacher_id,te1_0.department,te1_0.first_name,te1_0.last_name,te1_0.user_id from teacher te1_0 where te1_0.user_id=?

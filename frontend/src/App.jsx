@@ -11,12 +11,12 @@ import TeacherDashboardPage from './features/teacher/pages/TeacherDashboardPage.
 import SubjectsPage from './features/teacher/pages/SubjectsPage.jsx';
 import StudentProfilePage from './features/teacher/pages/StudentProfilePage.jsx';
 import { TEACHER_ROUTES } from './features/teacher/routes/teacherPaths.js';
-import RequestQueuePage from './features/teacher/pages/RequestQueuePage.jsx';
 import StudentDashboardPage from './features/students/pages/StudentDashboardPage.jsx';
 import ForgotPasswordPage from './features/auth/AuthenticationPages/ForgotPasswordPage.jsx';
 import ResetPasswordPage from './features/auth/AuthenticationPages/ResetPasswordPage.jsx';
 import DiagnosticResultsPage from './features/diagnostic/pages/DiagnosticResultsPage.jsx';
 import LogoutPage from './features/auth/AuthenticationPages/LogoutPage.jsx';
+import AssessmentMakerPage from './features/teacher/pages/AssessmentMakerPage.jsx';
 import ProfilePage from './features/profile/pages/ProfilePage.jsx';
 
 
@@ -46,7 +46,8 @@ function App() {
           <Route path={ROUTES.DASHBOARD_TEACHER} element={<TeacherDashboardPage />} />
           <Route path={TEACHER_ROUTES.SUBJECTS} element={<SubjectsPage />} />
           <Route path={TEACHER_ROUTES.STUDENT_PROFILE} element={<StudentProfilePage />} />
-          <Route path={TEACHER_ROUTES.REQUESTS} element={<RequestQueuePage />} />
+          <Route path={TEACHER_ROUTES.ASSESSMENT} element={<AssessmentMakerPage />} />
+          
         </Route>
 
         {/* students must finish the diagnostic before the dashboard opens */}
@@ -58,7 +59,9 @@ function App() {
 
         <Route path="*" element={<Navigate to={ROUTES.HOME} replace />} />
       </Routes>
+
     </Router>
+    
   );
 }
 
