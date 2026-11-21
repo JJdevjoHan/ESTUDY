@@ -31,12 +31,14 @@ export default function SubjectsPage() {
       ...subject,
       count: enrolled.length,
       average: enrolled.length ? Math.round(total / enrolled.length) : 0,
+      atRisk: enrolled.filter((s) => getStatus(s.scores[subject.id]) === 'at-risk').length,
     };
   });
 
   // If the chosen subject was deleted, fall back to the first one.
   const activeSubject = subjectCards.find((s) => s.id === subjectId) ?? subjectCards[0] ?? null;
   const activeId = activeSubject?.id ?? null;
+  
 
   // The lowest score is the highest risk, so it always shows first.
   const rows = useMemo(() => {
@@ -103,7 +105,15 @@ export default function SubjectsPage() {
                   {subject.count} {subject.count === 1 ? 'student' : 'students'} · Class average{' '}
                   {subject.average}%
                 </p>
+                                <p className={styles.subjectMeta}>
+                  {subject.count} {subject.count === 1 ? 'student' : 'students'} · Class average{' '}
+                  {subject.average}%
+                </p>
+                {subject.atRisk > 0 && (
+                  <p className={styles.subjectWarn}>{subject.atRisk} at risk</p>
+                )}
               </button>
+                
             ))}
           </div>
 
