@@ -16,6 +16,7 @@ import ForgotPasswordPage from './features/auth/AuthenticationPages/ForgotPasswo
 import ResetPasswordPage from './features/auth/AuthenticationPages/ResetPasswordPage.jsx';
 import DiagnosticResultsPage from './features/diagnostic/pages/DiagnosticResultsPage.jsx';
 import LogoutPage from './features/auth/AuthenticationPages/LogoutPage.jsx';
+import AssessmentMakerPage from './features/teacher/pages/AssessmentMakerPage.jsx';
 import ProfilePage from './features/profile/pages/ProfilePage.jsx';
 
 
@@ -45,6 +46,7 @@ function App() {
           <Route path={ROUTES.DASHBOARD_TEACHER} element={<TeacherDashboardPage />} />
           <Route path={TEACHER_ROUTES.SUBJECTS} element={<SubjectsPage />} />
           <Route path={TEACHER_ROUTES.STUDENT_PROFILE} element={<StudentProfilePage />} />
+          <Route path={TEACHER_ROUTES.ASSESSMENT} element={<AssessmentMakerPage />} />
           <Route path={TEACHER_ROUTES.REQUESTS} element={<RequestQueuePage />} />
         </Route>
 
@@ -57,7 +59,9 @@ function App() {
 
         <Route path="*" element={<Navigate to={ROUTES.HOME} replace />} />
       </Routes>
+
     </Router>
+    
   );
 }
 
