@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, Plus, Trash2, UserPlus } from 'lucide-react';
+import { Plus, Trash2, UserPlus } from 'lucide-react';
 import TeacherLayout from '../components/TeacherLayout.jsx';
 import AddSubjectForm from '../components/AddSubjectForm.jsx';
 import AddStudentForm from '../components/AddStudentForm.jsx';
@@ -22,10 +22,7 @@ export default function SubjectsPage() {
   const { subjects, students } = useClassData();
 
   const [subjectId, setSubjectId] = useState(null);
-  const [openPanel, setOpenPanel] = useState(null); // 'subject' | 'student' | 'upload' | null
-  const [query, setQuery] = useState('');
-  const [statusFilter, setStatusFilter] = useState('all');
-  const [sortBy, setSortBy] = useState('name');
+  const [openPanel, setOpenPanel] = useState(null); // 'subject' | 'student' | null
 
   const subjectCards = subjects.map((subject) => {
     const enrolled = students.filter((s) => subject.id in s.scores);
@@ -34,27 +31,23 @@ export default function SubjectsPage() {
       ...subject,
       count: enrolled.length,
       average: enrolled.length ? Math.round(total / enrolled.length) : 0,
+      atRisk: enrolled.filter((s) => getStatus(s.scores[subject.id]) === 'at-risk').length,
     };
   });
 
   // If the chosen subject was deleted, fall back to the first one.
   const activeSubject = subjectCards.find((s) => s.id === subjectId) ?? subjectCards[0] ?? null;
   const activeId = activeSubject?.id ?? null;
+  
 
+  // The lowest score is the highest risk, so it always shows first.
   const rows = useMemo(() => {
     if (!activeId) return [];
-    const text = query.trim().toLowerCase();
     return students
       .filter((s) => activeId in s.scores)
       .map((s) => ({ ...s, score: s.scores[activeId], status: getStatus(s.scores[activeId]) }))
-      .filter((row) => row.name.toLowerCase().includes(text))
-      .filter((row) => statusFilter === 'all' || row.status === statusFilter)
-      .sort((a, b) => {
-        if (sortBy === 'high') return b.score - a.score;
-        if (sortBy === 'low') return a.score - b.score;
-        return a.name.localeCompare(b.name);
-      });
-  }, [students, activeId, query, statusFilter, sortBy]);
+      .sort((a, b) => a.score - b.score || a.name.localeCompare(b.name));
+  }, [students, activeId]);
 
   const togglePanel = (name) => setOpenPanel((current) => (current === name ? null : name));
   const closePanel = () => setOpenPanel(null);
@@ -83,12 +76,15 @@ export default function SubjectsPage() {
   return (
     <TeacherLayout activeKey="subjects" title="SUBJECTS (STUDENTS)">
       <div className={tools.actionBar}>
-        
         <button type="button" className={tools.primary} onClick={() => togglePanel('subject')}>
           <Plus size={16} aria-hidden="true" />
           Add Subject
         </button>
       </div>
+
+      {openPanel === 'subject' && (
+        <AddSubjectForm onAdded={handleSubjectAdded} onClose={closePanel} />
+      )}
 
       {!activeSubject ? (
         <section className={widgets.card}>
@@ -109,7 +105,15 @@ export default function SubjectsPage() {
                   {subject.count} {subject.count === 1 ? 'student' : 'students'} · Class average{' '}
                   {subject.average}%
                 </p>
+                                <p className={styles.subjectMeta}>
+                  {subject.count} {subject.count === 1 ? 'student' : 'students'} · Class average{' '}
+                  {subject.average}%
+                </p>
+                {subject.atRisk > 0 && (
+                  <p className={styles.subjectWarn}>{subject.atRisk} at risk</p>
+                )}
               </button>
+                
             ))}
           </div>
 
@@ -134,48 +138,8 @@ export default function SubjectsPage() {
               </div>
             )}
 
-            <div className={styles.toolbar}>
-              <label className={styles.searchBox}>
-                <Search size={16} aria-hidden="true" />
-                <input
-                  type="search"
-                  placeholder="Search student name"
-                  aria-label="Search student name"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                />
-              </label>
-
-              <select
-                className={styles.select}
-                aria-label="Filter by status"
-                value={statusFilter}
-                onChange={(e) => setStatusFilter(e.target.value)}
-              >
-                <option value="all">All statuses</option>
-                <option value="at-risk">At Risk</option>
-                <option value="needs-attention">Needs Attention</option>
-                <option value="on-track">On Track</option>
-              </select>
-
-              <select
-                className={styles.select}
-                aria-label="Sort students"
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-              >
-                <option value="name">Sort: Name</option>
-                <option value="high">Sort: Highest score</option>
-                <option value="low">Sort: Lowest score</option>
-              </select>
-            </div>
-
             {rows.length === 0 ? (
-              <p className={styles.empty}>
-                {activeSubject.count === 0
-                  ? 'No students in this subject yet. Use Add Student.'
-                  : 'No students match your search.'}
-              </p>
+              <p className={styles.empty}>No students in this subject yet. Use Add Student.</p>
             ) : (
               <div className={widgets.tableWrap}>
                 <table className={widgets.table}>

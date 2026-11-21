@@ -140,3 +140,10 @@
   background: #972828;
   color: #ffffff;
 }
+
+.subjectWarn {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #972828;
+}
