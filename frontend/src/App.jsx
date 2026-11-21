@@ -47,7 +47,7 @@ function App() {
           <Route path={TEACHER_ROUTES.SUBJECTS} element={<SubjectsPage />} />
           <Route path={TEACHER_ROUTES.STUDENT_PROFILE} element={<StudentProfilePage />} />
           <Route path={TEACHER_ROUTES.ASSESSMENT} element={<AssessmentMakerPage />} />
-          <Route path={TEACHER_ROUTES.REQUESTS} element={<RequestQueuePage />} />
+          
         </Route>
 
         {/* students must finish the diagnostic before the dashboard opens */}
