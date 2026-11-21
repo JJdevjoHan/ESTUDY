@@ -10,13 +10,11 @@ import RecentUpdates from '../components/RecentUpdates.jsx';
 import { useRechecks } from '../store/recheckStore.js';
 import { useClassData } from '../store/classStore.js';
 import { TEACHER_ROUTES } from '../routes/teacherPaths.js';
-import {
-  SUBJECT_NAMES,
-  earlyWarningFlags,
-  performanceGroups,
-  recentUpdates,
-} from '../data/teacherMockData.js';
+import useTeacherData from '../hooks/useTeacherData.js';
+
 import styles from './TeacherDashboardPage.module.css';
+
+const { SUBJECT_NAMES, earlyWarningFlags, performanceGroups, recentUpdates } = useTeacherData();
 
 function getGreeting() {
   const hour = new Date().getHours();
